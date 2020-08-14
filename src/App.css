@@ -27,17 +27,18 @@
 }
 
 .Profile {
-  padding-top: 40px;
-  width:100%;
+  width:60%;
+  float: center;
 }
 
 .Prize {
-  padding-top: 20%;
-  width:100%;
+  padding-top:15%;
+  width:80%;
 }
 
+
+
 .counter {
-  padding-top: 10%;
   font-size: 4em;
   float: center;
   display: inline-block;
@@ -46,20 +47,19 @@
 }
 
 .count {
+  font-family: 'Work Sans', sans-serif;
   padding-left: 15px;
   border: 1px;
   border-color: black;
 }
 
 .minus {
-  background-color: pink;
   width: 40px;
   font-size: 2.8em;
   display: inline-block;
 }
 
 .plus {
-  background-color: pink;
   width: 40px;
   font-size: 2.5em;
   display: inline-block;
@@ -70,6 +70,43 @@
   font-family: 'Work Sans', sans-serif;
   margin-top:0px;
   margin-bottom:0px;
+}
+
+.settings {
+  display:block;
+}
+
+  .Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .Modalmain {
+  position:fixed;
+  background: white;
+  width: 90%;
+  height: auto;
+  padding-top:5%;
+  padding-bottom:5%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.ModalButton {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-left:10px;
+    margin-right:10px;
+
 }
 
 
