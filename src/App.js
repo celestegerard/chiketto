@@ -24,7 +24,8 @@ class App extends Component {
     lizards: 6,
     fish: 7,
     show: false,
-    prize: 'b'
+    prize: 'b',
+    price: 0
   }
 
 
@@ -49,14 +50,13 @@ subtractFromCount = () => {
 handlePrizeClick = (e) => {
   const prize = e.target.alt
   this.setState({ prize: prize })
+  console.log(e.target.alt)
   console.log(this.state.prize)
-if (e.target.alt === "bouncyball") {
-  console.log('Would you like this ' + prize + 'for ' + this.state.bouncyball + ' tickets?')
-}
 
 this.setState({
   show: !this.state.show,
-  prize: prize
+  prize: prize,
+  price: this.state.prize
 })
 
 
@@ -81,11 +81,27 @@ this.setState({
           <div onClick={this.handlePrizeClick}>
           {this.state.bouncyball <= this.state.count ? <React.Fragment><img className="Prize" src={bouncyball} alt="bouncyball" /> <p className="price">{this.state.bouncyball}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
           </div>
-          {this.state.dino <= this.state.count ? <React.Fragment><img className="Prize" src={dino} alt="bouncyball" /><p className="price">{this.state.dino}</p></React.Fragment> : null }
-          {this.state.lizards <= this.state.count ? <React.Fragment><img className="Prize" src={lizards} alt="bouncyball" /><p className="price">{this.state.lizards}</p></React.Fragment> : null }
-{this.state.peppa <= this.state.count ? <React.Fragment><img className="Prize" src={peppa} alt="bouncyball" /><p className="price">{this.state.peppa}</p></React.Fragment> : null }
-{this.state.chalk <= this.state.count ? <React.Fragment><img className="Prize" src={chalk} alt="bouncyball" /><p className="price">{this.state.chalk}</p></React.Fragment> : null }
-{this.state.fish <= this.state.count ? <React.Fragment><img className="Prize" src={fish} alt="bouncyball" /><p className="price">{this.state.fish}</p></React.Fragment> : null }
+
+          <div onClick={this.handlePrizeClick}>
+          {this.state.dino <= this.state.count ? <React.Fragment><img className="Prize" src={dino} alt="dino" /><p className="price">{this.state.dino}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.dino} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}>
+          {this.state.lizards <= this.state.count ? <React.Fragment><img className="Prize" src={lizards} alt="lizard" /><p className="price">{this.state.lizards}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.lizards} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}>
+          {this.state.peppa <= this.state.count ? <React.Fragment><img className="Prize" src={peppa} alt="pepa bandaids" /><p className="price">{this.state.peppa}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.pepa} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}>
+          {this.state.chalk <= this.state.count ? <React.Fragment><img className="Prize" src={chalk} alt="chalk" /><p className="price">{this.state.chalk}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}>
+          {this.state.fish <= this.state.count ? <React.Fragment><img className="Prize" src={fish} alt="fish book" /><p className="price">{this.state.fish}</p></React.Fragment> : null }
+          </div>
+
           </div>
       </div>
     );
