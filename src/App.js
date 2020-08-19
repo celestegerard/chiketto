@@ -10,6 +10,7 @@ import fish from './prizes/fish.jpg'
 import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
 import Modal from './components/Modal'
+import add from './Plus.png'
 
 
 
@@ -58,20 +59,16 @@ handlePrizeClick = (e) => {
     price: newPrice,
     show: !this.state.show
   })
-
-  console.log("prize state " + this.state.prize)
-  console.log("price state " + this.state.price)
-
 }
 
 
   render() {
-console.log("render price log:" + this.state.price)
 
     return (
       <div className="App">
         <header className="App-header">
           <img className="settings" src={settings} alt="jackson" />
+          <img className="add" src={add} alt="add" />
         </header>
         <img className="Profile" src={jackson} alt="jackson" />
           <div className="count">
