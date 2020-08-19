@@ -7,6 +7,8 @@ export default class Modal extends React.Component {
           return null;
       }
 
+      console.log("this is what Modal thinks the price is: " + this.props.price)
+
     return (
       <React.Fragment>
       <div className="Modal">
