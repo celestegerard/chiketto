@@ -11,6 +11,7 @@ import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
 import Modal from './components/Modal'
 import add from './Plus.png'
+import star from './prizes/star.svg'
 
 
 
@@ -68,10 +69,10 @@ handlePrizeClick = (e) => {
     return (
       <div className="App">
         <header className="App-header">
-          <img className="settings" src={settings} alt="jackson" />
-          <img className="add" src={add} alt="add" />
         </header>
+        <div className="Meter">
         <img className="Profile" src={jackson} alt="jackson" />
+        </div>
           <div className="count">
           <button onClick={this.handleMinusClick} className="minus">-</button>
           <div className="counter">{this.state.count}</div>
@@ -79,28 +80,28 @@ handlePrizeClick = (e) => {
           </div>
 
           <div>
-          <div onClick={this.handlePrizeClick}>
-          {this.state.bouncyball <= this.state.count ? <React.Fragment><img className="Prize" src={bouncyball} alt="bouncyball" /> <p className="price">{this.state.bouncyball}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick} >
+          {this.state.bouncyball <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><p className="price">{this.state.bouncyball}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick}>
-          {this.state.dino <= this.state.count ? <React.Fragment><img className="Prize" src={dino} alt="dino" /><p className="price">{this.state.dino}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick}  >
+          {this.state.dino <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={dino} alt="dino" /><p className="price">{this.state.dino}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick}>
-          {this.state.lizards <= this.state.count ? <React.Fragment><img className="Prize" src={lizards} alt="lizards" /><p className="price">{this.state.lizards}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick}  >
+          {this.state.lizards <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={lizards} alt="lizards" /><p className="price">{this.state.lizards}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick}>
-          {this.state.peppa <= this.state.count ? <React.Fragment><img className="Prize" src={peppa} alt="peppa" /><p className="price">{this.state.peppa}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick}  >
+          {this.state.peppa <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={peppa} alt="peppa" /><p className="price">{this.state.peppa}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick}>
-          {this.state.chalk <= this.state.count ? <React.Fragment><img className="Prize" src={chalk} alt="chalk" /><p className="price">{this.state.chalk}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick}  >
+          {this.state.chalk <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={chalk} alt="chalk" /><p className="price">{this.state.chalk}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick}>
-          {this.state.fish <= this.state.count ? <React.Fragment><img className="Prize" src={fish} alt="fish" /><p className="price">{this.state.fish}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></React.Fragment> : null }
+          <div onClick={this.handlePrizeClick} >
+          {this.state.fish <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={fish} alt="fish" /><p className="price">{this.state.fish}</p><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
           </div>

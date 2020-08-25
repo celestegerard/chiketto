@@ -34,8 +34,16 @@
 .Prize {
   padding-top:15%;
   width:80%;
-  border: solid 1px;
+}
 
+.PrizeContainer {
+  margin-top:15px;
+  margin-bottom:15px;
+  margin-left: 15px;
+  margin-right: 15px;
+border: 0.5px solid #E5E5E5;
+box-sizing: border-box;
+border-radius: 16px;
 }
 
 
@@ -56,6 +64,7 @@
 }
 
 .minus {
+  opacity: 10%;
   width: 40px;
   font-size: 2.8em;
   display: inline-block;
@@ -67,11 +76,20 @@
   display: inline-block;
 }
 
+.star {
+  float:right;
+  height: 80px;
+}
+
 .price {
+  color: #FFA768;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom:35px;
   font-size: 4em;
   font-family: 'Work Sans', sans-serif;
-  margin-top:0px;
-  margin-bottom:0px;
+  padding-right: 40px;
+  text-align: right;
 }
 
 .settings {
@@ -111,9 +129,15 @@
 
 }
 
-.Add {
-  padding-bottom: 50px;
+.Meter {
+  height: 215px;
+ width: 215px;
+ border: solid #B0E0FB 20px;
+ border-radius: 50%;
+ display: inline-block;
 }
+
+
 
 
 @keyframes App-logo-spin {
