@@ -27,8 +27,10 @@
 }
 
 .Profile {
-  width:60%;
+  margin-top: 8.5px;
+  width:87%;
   float: center;
+  border-radius: 50%;
 }
 
 .Prize {
@@ -130,11 +132,44 @@ border-radius: 16px;
 }
 
 .Meter {
-  height: 215px;
- width: 215px;
- border: solid #B0E0FB 20px;
- border-radius: 50%;
- display: inline-block;
+  width: 173px;
+  height: 173px;
+  border: solid #F8F7F7 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.MeterBlue {
+  width: 173px;
+  height: 173px;
+  border: solid #B0E0FB 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.User {
+  margin-top: 8.5px;
+  width:87%;
+  border-radius: 50%;
+}
+
+.UserTopSpace {
+  height: 40px;
+}
+
+.UserBottomSpace {
+  height: 400px;
+}
+
+.UserMeterBlue {
+  margin-top:17px;
+  margin-left:30%;
+  margin-right:30%;
+  width: 173px;
+  height: 173px;
+  border: solid #B0E0FB 12px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 

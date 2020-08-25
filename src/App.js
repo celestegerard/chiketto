@@ -12,6 +12,9 @@ import settings from './settings.jpg'
 import Modal from './components/Modal'
 import add from './Plus.png'
 import star from './prizes/star.svg'
+import avatar from './Avatar.jpg'
+import ellie from './AvatarEllie.jpg'
+import wes from './AvatarWes.jpg'
 
 
 
@@ -27,7 +30,9 @@ class App extends Component {
     fish: 7,
     show: false,
     prize: 'b',
-    price: 0
+    price: 0,
+    usersShow: false,
+    prizeBox: false
   }
 
 
@@ -62,6 +67,18 @@ handlePrizeClick = (e) => {
   })
 }
 
+handleUserClick = () => {
+  this.setState({
+    usersShow: !this.state.usersShow
+  })
+}
+
+handlePrizeBox = () => {
+  this.setState({
+    prizeBox: !this.state.prizeBox
+  })
+}
+
 
   render() {
 
@@ -69,9 +86,12 @@ handlePrizeClick = (e) => {
     return (
       <div className="App">
         <header className="App-header">
+          <button onClick={this.handleUserClick} >Users</button>
+          <button onClick={this.handlePrizeBoxClick} >Prize Box</button>
         </header>
-        <div className="Meter">
-        <img className="Profile" src={jackson} alt="jackson" />
+        {this.state.usersShow ? <React.Fragment><div className="UserTopSpace"></div><div className="MeterBlue"><img className="User" src={ellie} alt="jackson" /></div><div onClick={this.handleUserClick} className="UserMeterBlue"><img className="User" src={avatar} alt="jackson" /></div><div className="UserMeterBlue"><img className="User" src={wes} alt="jackson" /></div><div className="UserBottomSpace"></div></React.Fragment> : null}
+          <div className="MeterBlue">
+        <img className="Profile" src={avatar} alt="jackson" />
         </div>
           <div className="count">
           <button onClick={this.handleMinusClick} className="minus">-</button>
