@@ -3,9 +3,6 @@ export default class Prize extends React.Component {
 
 
   render() {
-    if(!this.props.show){
-          return null;
-      }
 
     return (
       <React.Fragment>
