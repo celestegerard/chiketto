@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   generatePrizes = () => {
-  return this.state.prizes.map(prize => <Prize prize={prize} />)
+  return this.state.prizes.map(prize => <Prize prize={prize} prizeimage={this.state.prize}/>)
 }
 
 

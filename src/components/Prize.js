@@ -5,7 +5,7 @@ class Prize extends Component {
 
     return(
       <div className="PrizeBoxContainer">
-        <img className="Prize" src={this.props.prize.title} alt={this.props.prize.title} />
+        <img className="Prize" src={this.props.prizeimage} alt={this.props.prize.title} />
         <p className="boxprice">{this.props.prize.text}</p>
       </div>
       // <div className="MemoryDetail">
