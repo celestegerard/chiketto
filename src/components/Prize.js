@@ -1,19 +1,19 @@
-import React from "react";
-export default class Prize extends React.Component {
+import React, { Component } from 'react';
 
-
+class Prize extends Component {
   render() {
 
-    return (
-      <React.Fragment>
-      <div className="Modal">
-      <div className="Modalmain">
-      <p >Would you like this {this.props.prize} for {this.props.price} tickets?</p>
-      <button className="ModalButton" onClick={this.props.subtractFromCount}> Yes </button>
-      <button className="ModalButton" >No</button>
+    return(
+      <div className="PrizeBoxContainer">
+        <img className="Prize" src={this.props.prize.title} alt={this.props.prize.title} />
+        <p className="boxprice">{this.props.prize.text}</p>
       </div>
-      </div>
-      </React.Fragment>
+      // <div className="MemoryDetail">
+      //   <p className="MemoryDetailTitle" onClick={(e) => this.props.handleMemoryDetailSelect(e.target.innerText)}>{this.props.memory.title}</p>
+      //   <p className="MemoryDetailBody" >{this.props.memory.body.slice(0, 77) + '...'}</p>
+      // </div>
     )
   }
 }
+
+export default Prize;
