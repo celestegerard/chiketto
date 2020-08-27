@@ -47,12 +47,12 @@ class App extends Component {
         'Accept': 'application/json'
       }
     })
-    .then(res => res.json())
-    .then(prizes => this.setState({ prizes }))
+    .then(res => res.text())
+    .then(prizes => console.log(prizes))
   }
 
   generatePrizes = () => {
-  return this.state.prizes.map(prize => <Prize prize={prize} prizeimage={this.state.prize}/>)
+  return this.state.prizes.map(prize => console.log("DAH PRIZES " + prize.prizeimage))
 }
 
 
@@ -106,6 +106,7 @@ handlePrizeBoxClick = () => {
 
     console.log("render prizes:" + this.state.prizes)
     const prizes = this.generatePrizes();
+
     return (
       <div className="App">
         <header className="App-header">
