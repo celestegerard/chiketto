@@ -16,6 +16,7 @@ import avatar from './Avatar.jpg'
 import ellie from './AvatarEllie.jpg'
 import wes from './AvatarWes.jpg'
 import Prize from './components/Prize';
+import plus from './plus.jpeg'
 
 const URL = "http://localhost:3000/prizes"
 
@@ -114,7 +115,7 @@ handlePrizeBoxClick = () => {
           <button onClick={this.handlePrizeBoxClick} >Prize Box</button>
         </header>
         {prizes}
-        {this.state.prizeBox ? <React.Fragment><div className='flexbox-wrapper'><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><p className="boxprice">{this.state.bouncyball}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><p className="boxprice">{this.state.dino}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><p className="boxprice">{this.state.lizards}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><p className="boxprice">{this.state.peppa}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><p className="boxprice">{this.state.chalk}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><p className="boxprice">{this.state.fish}</p></div></div></React.Fragment> : null }
+        {this.state.prizeBox ? <React.Fragment><div className="addPrize"><img className="addPrize" src={plus} /></div><div className='flexbox-wrapper'><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><p className="boxprice">{this.state.bouncyball}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><p className="boxprice">{this.state.dino}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><p className="boxprice">{this.state.lizards}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><p className="boxprice">{this.state.peppa}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><p className="boxprice">{this.state.chalk}</p></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><p className="boxprice">{this.state.fish}</p></div></div></React.Fragment> : null }
         {this.state.usersShow ? <React.Fragment><div className="UserTopSpace"></div><div className="MeterBlue"><img className="User" src={ellie} alt="jackson" /></div><div onClick={this.handleUserClick} className="UserMeterBlue"><img className="User" src={avatar} alt="jackson" /></div><div className="UserMeterBlue"><img className="User" src={wes} alt="jackson" /></div><div className="UserBottomSpace"></div></React.Fragment> : null}
           <div className="MeterBlue">
         <img className="Profile" src={avatar} alt="jackson" />
