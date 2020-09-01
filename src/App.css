@@ -111,12 +111,17 @@ border-radius: 16px;
 .boxprice {
   color: #FFA768;
   font-weight: bold;
-  margin-top: 0px;
-  margin-bottom:20px;
+  margin-bottom: 18px;
+  margin-top: 18px;
   font-size: 3em;
   font-family: 'Work Sans', sans-serif;
-  padding-right: 40px;
-  text-align: right;
+}
+
+.yellow-sticker {
+  margin-left: 95px;
+  background-color: #FFE600;
+  border-radius: 50%;
+  width: 60px;
 }
 
 .settings {
