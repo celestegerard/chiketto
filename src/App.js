@@ -131,10 +131,6 @@ handlePrizeBoxClick = () => {
 
           <div>
 
-            <div onClick={this.handlePrizeClick} >
-            {this.state.soda <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={soda} alt="soda" /><div className="yellow-sticker-user"><p className="price-user">{this.state.soda}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-            </div>
-
 
           <div onClick={this.handlePrizeClick} >
           {this.state.bouncyball <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker-user"><p className="price-user">{this.state.bouncyball}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
@@ -160,9 +156,6 @@ handlePrizeBoxClick = () => {
           {this.state.fish <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker-user"><p className="price-user">{this.state.fish}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
-          <div onClick={this.handlePrizeClick} >
-          {this.state.soda <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={soda} alt="soda" /><div className="yellow-sticker-user"><p className="price-user">{this.state.soda}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
 
           </div>
       </div>
