@@ -281,8 +281,106 @@ color: #FFFFFF;
   column-count: 2;
 }
 
+.ap-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.01);
+}
 
+.ap-modalmain {
+  position: fixed;
+  background: #B0E0FB;
+  width: 90%;
+  margin-right: 0px;
+  padding-top:15px;
+  padding-bottom: 35px;
+  height: auto;
+  border-radius: 11px;
+  border: none;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
 
+.ap-text {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 23px;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.ap-input {
+width: 242px;
+height: 48px;
+margin-bottom: 12px;
+
+background: #FFFFFF;
+border: 1px solid #B0E0FB;
+box-sizing: border-box;
+border-radius: 11px;
+}
+
+.ap-upload {
+  width: 242px;
+height: 48px;
+border: solid 1px;
+border-radius: 11px;
+font-family: 'Work Sans', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 23px;
+text-align: center;
+
+color: #FFFFFF;
+    background-color: #B0E0FB;
+}
+
+.ap-submit {
+  margin-top: 18px;
+  width: 127px;
+height: 48px;
+border: none;
+border-radius: 11px;
+font-family: 'Work Sans', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 23px;
+text-align: center;
+
+color: #B0E0FB;
+    background-color: #ffffff;
+}
+
+.ap-no {
+  margin-top:12px;
+  border: none;
+  background-color: #B0E0FB;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+color: #ffffff;
+}
+
+.nav {
+  z-index: 5;
+  margin-top:30px;
+  padding-top:10px;
+  width: 100%;
+  border-top: solid 1px #000000;
+  float: center;
+  position:absolute;
+}
 
 
 @keyframes App-logo-spin {
