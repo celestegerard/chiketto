@@ -34,11 +34,16 @@
 }
 
 .Prize {
-  padding-top:15%;
-  width:80%;
+  postion: relative;
+  z-index: 2;
+  width:100%;
+  height: auto;
+  border-radius: 16px;
 }
 
 .PrizeContainer {
+  position: relative;
+  z-index: 1;
   margin-top:15px;
   margin-bottom:15px;
   margin-left: 15px;
@@ -109,10 +114,10 @@ border-radius: 16px;
 .price-user {
   color: #FFA768;
   font-weight: bold;
-  margin-top: 0px;
-  margin-bottom:35px;
   font-size: 4em;
   font-family: 'Work Sans', sans-serif;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .boxprice {
@@ -132,7 +137,12 @@ border-radius: 16px;
 }
 
 .yellow-sticker-user {
-  margin-left: 250px;
+
+  position: relative;
+  z-index: 3;
+  float: right;
+  margin-right: 25px;
+  top: -110px;
   background-color: #FFE600;
   border-radius: 50%;
   width: 75px;
@@ -185,7 +195,6 @@ color: #B0E0FB;
 .ModalButton-no {
   border: none;
   background-color: #B0E0FB;
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
