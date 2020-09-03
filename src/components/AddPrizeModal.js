@@ -13,7 +13,7 @@ export default class AddPrizeModal extends React.Component {
       <div className="ap-modalmain">
       <p className="ap-text">Add Prize</p>
       <form>
-      <input className="ap-input" type="text" name="Prize-name"  /><br />
+      <input className="ap-input" type="text" name="Prize-name" placeholder="Prize 1" /><br />
       <div className="ap-price-row">
       <select className="ap-price">
       <option selected value="0">0</option>

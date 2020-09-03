@@ -11,14 +11,15 @@ import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
 import AddPrizeModal from './components/AddPrizeModal.js'
 import Modal from './components/Modal'
-import add from './Plus.png'
 import star from './prizes/star.svg'
 import avatar from './Avatar.jpg'
 import ellie from './AvatarEllie.jpg'
 import wes from './AvatarWes.jpg'
 import Prize from './components/Prize';
-import plus from './plus.jpeg'
+import plus from './plus.png'
 import soda from './soda.JPG'
+import text from './Text.jpg'
+import textone from './Text1.jpg'
 
 const URL = "http://localhost:3000/prizes"
 
@@ -34,6 +35,8 @@ class App extends Component {
     chalk: 5,
     lizards: 6,
     fish: 7,
+    text: 6,
+    textone: 3,
     soda: 1,
     show: false,
     prize: 'b',
@@ -145,6 +148,10 @@ handleAddPrizeClick = () => {
           </div>
 
           <div onClick={this.handlePrizeClick}  >
+          {this.state.textone <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={textone} alt="text1" /><div className="yellow-sticker-user"><p className="price-user">{this.state.textone}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}  >
           {this.state.lizards <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker-user"><p className="price-user">{this.state.lizards}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
@@ -154,6 +161,10 @@ handleAddPrizeClick = () => {
 
           <div onClick={this.handlePrizeClick}  >
           {this.state.chalk <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker-user"><p className="price-user">{this.state.chalk}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+          </div>
+
+          <div onClick={this.handlePrizeClick}  >
+          {this.state.text <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={text} alt="text" /><div className="yellow-sticker-user"><p className="price-user">{this.state.text}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
           </div>
 
           <div onClick={this.handlePrizeClick} >
