@@ -310,7 +310,7 @@ color: #FFFFFF;
   font-family: Work Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 23px;
   line-height: 23px;
   text-align: center;
 
@@ -321,11 +321,11 @@ color: #FFFFFF;
 width: 242px;
 height: 48px;
 margin-bottom: 12px;
-color: #FFFFFF;
 font-family: Work Sans;
 font-style: normal;
 font-weight: 300;
 font-size: 22px;
+color: #FFFFFF;
 line-height: 23px;
 text-align: center;
 background-color: #B0E0FB;
@@ -335,16 +335,18 @@ border-radius: 11px;
 }
 
 .ap-price {
+  padding-left:15px;
+  border: solid 0px;
+  padding-right: 15px;
   z-index:6;
-  display: block;
-  width: 48px;
+  width: 65px;
   height: 48px;
   font-family: Work Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 23px;
   line-height: 23px;
-  border: solid 1px #B0E0FB;
+  border-right: solid 1px #FFFFFF;
   text-align: center;
   color: #FFFFFF;
   background: #B0E0FB;
@@ -359,7 +361,7 @@ border-radius: 11px;
 font-family: 'Work Sans', sans-serif;
 font-style: normal;
 font-weight: bold;
-font-size: 22px;
+font-size: 23px;
 line-height: 23px;
 text-align: center;
 
@@ -376,7 +378,7 @@ border-radius: 11px;
 font-family: 'Work Sans', sans-serif;
 font-style: normal;
 font-weight: bold;
-font-size: 22px;
+font-size: 23px;
 line-height: 23px;
 text-align: center;
 
@@ -385,12 +387,13 @@ color: #B0E0FB;
 }
 
 .ap-no {
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
   margin-top:12px;
   border: none;
   background-color: #B0E0FB;
-  font-style: normal;
-  font-weight: lighter;
-  font-size: 20px;
+  font-size: 23px;
   line-height: 23px;
   text-align: center;
 color: #ffffff;
@@ -407,6 +410,7 @@ color: #ffffff;
 }
 
 .ap-price-row {
+  z-index: 7;
   padding: 0px;
   margin-left:45px;
   width: 242px;
