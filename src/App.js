@@ -44,7 +44,10 @@ class App extends Component {
     usersShow: false,
     prizeBox: false,
     prizes: [],
-    addPrize: false
+    addPrize: false,
+    ellie: 0,
+    jackson: 0,
+    wes: 0
   }
 
 
