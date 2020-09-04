@@ -20,6 +20,7 @@ import soda from './soda.JPG'
 import text from './Text.jpg'
 import textone from './Text1.jpg'
 import star from './Star.png'
+import AddTicketModal from './components/AddTicketModal.js'
 
 const URL = "http://localhost:3000/prizes"
 
@@ -45,9 +46,8 @@ class App extends Component {
     prizeBox: false,
     prizes: [],
     addPrize: false,
-    ellie: 0,
-    jackson: 0,
-    wes: 0
+    addTicket: false,
+    user: ''
   }
 
 
@@ -118,10 +118,19 @@ handleAddPrizeClick = () => {
   })
 }
 
+checkUserClick = (e) => {
+  const user = e.target.alt
+  this.setState({
+    addTicket: !this.state.addTicket,
+    user
+  })
+  console.log(e.target.alt)
+}
+
 
   render() {
 
-    console.log("addPrize " + this.state.addPrize)
+    console.log("User" + this.state.user)
     const prizes = this.generatePrizes();
 
     return (
@@ -131,7 +140,7 @@ handleAddPrizeClick = () => {
         </header>
         {prizes}
         {this.state.prizeBox ? <React.Fragment><div className="addPrize"><img className="addPrize" onClick={this.handleAddPrizeClick} src={plus} /></div><div className='flexbox-wrapper'><AddPrizeModal addPrize={this.state.addPrize}/><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker"><p className="boxprice">{this.state.bouncyball}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker"><p className="boxprice">{this.state.dino}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker"><p className="boxprice">{this.state.lizards}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker"><p className="boxprice">{this.state.peppa}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker"><p className="boxprice">{this.state.chalk}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker"><p className="boxprice">{this.state.fish}</p></div></div></div></React.Fragment> : null }
-        {this.state.usersShow ? <React.Fragment><div className="MeterBlue"><img className="Profile" src={ellie} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="MeterBlue"><img className="Profile" src={avatar} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div onClick={this.handleUserClick} className="MeterBlue"><img className="Profile" src={wes} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
+        {this.state.usersShow ? <React.Fragment><div className="MeterBlue" ><img className="Profile" src={ellie} alt="Ellie" /><div className="count" onClick={this.checkUserClick} ><img className="count" src={star} alt="Ellie" /><div className="counter">{this.state.count}</div></div><AddTicketModal user={this.state.user} plusticket={this.handlePlusClick} price={this.state.price} /></div><div className="MeterBlue" onClick={this.checkUserClick} ><img className="Profile" src={avatar} alt="Jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div onClick={this.checkUserClick} className="MeterBlue"><img className="Profile" src={wes} alt="Wes" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
           <div className="MeterBlue">
         <img className="Profile" src={avatar} alt="jackson" />
         <div className="count">

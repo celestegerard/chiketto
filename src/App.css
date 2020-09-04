@@ -145,7 +145,6 @@ border-radius: 16px;
 }
 
 .yellow-sticker-user {
-
   position: relative;
   z-index: 3;
   float: right;
@@ -455,6 +454,32 @@ color: #ffffff;
   color: rgba(255, 255, 255, .5);
 
 }
+
+.at-modalmain {
+  position: fixed;
+  background: #B0E0FB;
+  width: 90%;
+  margin-right: 0px;
+  padding-top:15px;
+  padding-bottom: 35px;
+  height: auto;
+  border-radius: 11px;
+  top:48%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 14;
+}
+
+.at-text {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
 
 
 @keyframes App-logo-spin {
