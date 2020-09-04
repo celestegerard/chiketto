@@ -11,7 +11,6 @@ import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
 import AddPrizeModal from './components/AddPrizeModal.js'
 import Modal from './components/Modal'
-import star from './prizes/star.svg'
 import avatar from './Avatar.jpg'
 import ellie from './AvatarEllie.jpg'
 import wes from './AvatarWes.jpg'
@@ -20,6 +19,7 @@ import plus from './plus.png'
 import soda from './soda.JPG'
 import text from './Text.jpg'
 import textone from './Text1.jpg'
+import star from './Star.png'
 
 const URL = "http://localhost:3000/prizes"
 
@@ -128,10 +128,11 @@ handleAddPrizeClick = () => {
         </header>
         {prizes}
         {this.state.prizeBox ? <React.Fragment><div className="addPrize"><img className="addPrize" onClick={this.handleAddPrizeClick} src={plus} /></div><div className='flexbox-wrapper'><AddPrizeModal addPrize={this.state.addPrize}/><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker"><p className="boxprice">{this.state.bouncyball}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker"><p className="boxprice">{this.state.dino}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker"><p className="boxprice">{this.state.lizards}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker"><p className="boxprice">{this.state.peppa}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker"><p className="boxprice">{this.state.chalk}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker"><p className="boxprice">{this.state.fish}</p></div></div></div></React.Fragment> : null }
-        {this.state.usersShow ? <React.Fragment><div className="UserTopSpace"></div><div className="MeterBlue"><img className="User" src={ellie} alt="jackson" /></div><div onClick={this.handleUserClick} className="UserMeterBlue"><img className="User" src={avatar} alt="jackson" /></div><div className="UserMeterBlue"><img className="User" src={wes} alt="jackson" /></div><div className="UserBottomSpace"></div></React.Fragment> : null}
+        {this.state.usersShow ? <React.Fragment><div className="MeterBlue"><img className="Profile" src={ellie} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="MeterBlue"><img className="Profile" src={avatar} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div onClick={this.handleUserClick} className="MeterBlue"><img className="Profile" src={wes} alt="jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
           <div className="MeterBlue">
         <img className="Profile" src={avatar} alt="jackson" />
         <div className="count">
+          <img className="count" src={star} />
           <div onClick={this.handlePlusClick} className="counter">{this.state.count}</div>
         </div>
         </div>

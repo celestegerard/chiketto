@@ -27,8 +27,8 @@
 }
 
 .Profile {
-  margin-top: 8.5px;
-  width:87%;
+  margin-top: 5.5px;
+  width:91%;
   float: center;
   border-radius: 50%;
 }
@@ -60,21 +60,23 @@ border-radius: 16px;
 }
 
 .counter {
+  position: relative;
+  top: -130px;
+  left: 13.5px;
+  z-index: 12;
   color: #FFA768;
-  font-size: 3.8em;
-  float: center;
+  font-size: 3.2em;
   font-weight: bold;
   display: inline-block;
 }
 
 .count {
   position: relative;
-  top:-45px;
+  left: 15px;
+  top:-37px;
   z-index: 11;
-  width: 75px;
-  height: 75px;
-  background-color: #FFE600 ;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   font-family: 'Work Sans', sans-serif;
   border: 1px;
   border-color: black;
@@ -82,7 +84,7 @@ border-radius: 16px;
 }
 
 .minus {
-  opacity: 10%;
+  opacity: 5%;
   width: 40px;
   font-size: 2.8em;
   display: inline-block;
@@ -246,6 +248,7 @@ color: #FFFFFF;
 }
 
 .MeterBlue {
+    margin-bottom:17px;
   z-index: 4;
   width: 173px;
   height: 173px;
@@ -261,7 +264,7 @@ color: #FFFFFF;
 }
 
 .UserTopSpace {
-  height: 40px;
+  height: 30px;
 }
 
 .UserBottomSpace {
@@ -417,7 +420,7 @@ color: #ffffff;
 
 .nav {
 
-  z-index: 10;
+  z-index: 16;
   margin-top:30px;
   padding-top:10px;
   width: 100%;
