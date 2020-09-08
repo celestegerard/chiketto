@@ -83,6 +83,14 @@ class App extends Component {
     }));
   };
 
+  plusTicket = () => {
+    this.setState({
+      count: this.state.count + 1,
+      addTicket: !this.state.addTicket
+    })
+  }
+
+
   handleMinusClick = () => {
     this.setState(({ count }) => ({
       count: count - 1
@@ -119,29 +127,32 @@ handleAddPrizeClick = () => {
   })
 }
 
-checkUserClick = (e) => {
+handleStarClick = (e) => {
+  console.log("its hitting")
   const user = e.target.alt
+  console.log(user)
   this.setState({
     addTicket: !this.state.addTicket,
     user
   })
-  console.log(e.target.alt)
 }
 
 
   render() {
-
-    console.log("User" + this.state.user)
     const prizes = this.generatePrizes();
+    console.log(this.state.addTicket)
 
     return (
       <div className="App">
         <header className="App-header">
           <button onClick={this.handleMinusClick} className="minus">-</button>
         </header>
-        {prizes}
+
         {this.state.prizeBox ? <React.Fragment><div className="addPrize"><img className="addPrize" onClick={this.handleAddPrizeClick} src={plus} /></div><div className='flexbox-wrapper'><AddPrizeModal addPrize={this.state.addPrize} cancel={this.handleAddPrizeClick} /><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker"><p className="boxprice">{this.state.bouncyball}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker"><p className="boxprice">{this.state.dino}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker"><p className="boxprice">{this.state.lizards}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker"><p className="boxprice">{this.state.peppa}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker"><p className="boxprice">{this.state.chalk}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker"><p className="boxprice">{this.state.fish}</p></div></div></div></React.Fragment> : null }
-        {this.state.usersShow ? <React.Fragment><div className="MeterBlue" ><img className="Profile" src={ellie} alt="Ellie" /><div className="count" onClick={this.checkUserClick} ><img className="count" src={star} alt="Ellie" /><div className="counter">{this.state.count}</div></div><AddTicketModal user={this.state.user} plusticket={this.handlePlusClick} price={this.state.price} /></div><div className="MeterBlue" onClick={this.checkUserClick} ><img className="Profile" src={avatar} alt="Jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div onClick={this.checkUserClick} className="MeterBlue"><img className="Profile" src={wes} alt="Wes" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
+
+        {this.state.usersShow ? <React.Fragment><div className="MeterBlue" ><img className="Profile" src={ellie} alt="Ellie" /><div className="count" onClick={this.handleStarClick} ><img className="count" src={star} alt="Ellie" /><div className="counter" alt="Ellie">{this.state.count}</div></div></div><AddTicketModal addTicket={this.state.addTicket} user={this.state.user} cancel={this.handleStarClick} plusTicket={this.plusTicket} /><div className="MeterBlue" onClick={this.checkUserClick} ><img className="Profile" src={avatar} alt="Jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="MeterBlue"><img className="Profile" src={wes} alt="Wes" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
+
+
           <div className="MeterBlue">
         <img className="Profile" src={avatar} alt="jackson" />
         <div className="count">
