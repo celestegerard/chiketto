@@ -33,7 +33,7 @@ export default class AddPrizeModal extends React.Component {
       </select>
         <input className="ap-upload" type="submit" value="Upload Image" />
       <input className="ap-submit" type="submit" value="Add" />
-      <p className="ap-no">Cancel</p>
+      <p onClick={this.props.cancel} className="ap-no">Cancel</p>
       </form>
       </div>
       </div>
