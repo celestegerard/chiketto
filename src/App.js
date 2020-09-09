@@ -6,17 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import jackson from './jackson.jpeg';
-import bouncyball from './prizes/bouncyball.jpg'
-import dino from './prizes/dino.jpg'
-import paint from './prizes/paint.jpg'
-import jelloplay from './prizes/jelloplay.jpeg'
-import peppa from './prizes/peppabandaid.jpg'
-import chalk from './prizes/chalk.jpg'
-import fish from './prizes/fish.jpg'
-import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
-import AddPrizeModal from './components/AddPrizeModal.js'
 import Modal from './components/Modal'
 import ellie from './AvatarEllie.jpg'
 import avatar from './Avatar.jpg'
@@ -138,7 +128,7 @@ handleAddPrizeClick = () => {
 handleStarClick = (e) => {
   console.log("its hitting")
   const user = e.target.alt
-  console.log(user)
+  console.log(e.target.alt)
   this.setState({
     addTicket: !this.state.addTicket,
     user
@@ -148,9 +138,10 @@ handleStarClick = (e) => {
 
   render() {
     const prizes = this.generatePrizes();
-    console.log(this.state.addTicket)
+    console.log(this.state.count)
 
     return (
+
       <div className="App">
         <header className="App-header">
           <button onClick={this.handleMinusClick} className="minus">-</button>
@@ -162,7 +153,7 @@ handleStarClick = (e) => {
               <button onClick={this.handleUserClick} >Home</button>
             </Link>
             <Link to="/prizes">
-              <button onClick={this.handlePrizeBoxClick} count={this.state.count} addTicket={this.state.addTicket} user={this.state.user} >Prizes</button>
+              <button onClick={this.handlePrizeBoxClick} addTicket={this.state.addTicket} user={this.state.user} >Prizes</button>
             </Link>
           </div>
           <Switch>
@@ -170,7 +161,7 @@ handleStarClick = (e) => {
               <Prizes handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home />
+              <Home count={this.state.count} handleStarClick={this.handleStarClick} />
             </Route>
           </Switch>
         </Router>

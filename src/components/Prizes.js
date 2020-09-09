@@ -19,7 +19,7 @@ export default class Prizes extends React.Component {
       <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
       </div>
       <div className='flexbox-wrapper'>
-      <AddPrizeModal addPrize={this.props.addPrize} cancel={this.handleAddPrizeClick} />
+      <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} />
 
 
       <div className="PrizeBoxContainer">
