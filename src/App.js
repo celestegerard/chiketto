@@ -6,7 +6,6 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-
 import jackson from './jackson.jpeg';
 import bouncyball from './prizes/bouncyball.jpg'
 import dino from './prizes/dino.jpg'
@@ -19,8 +18,8 @@ import lizards from './prizes/lizards.jpg'
 import settings from './settings.jpg'
 import AddPrizeModal from './components/AddPrizeModal.js'
 import Modal from './components/Modal'
-import avatar from './Avatar.jpg'
 import ellie from './AvatarEllie.jpg'
+import avatar from './Avatar.jpg'
 import wes from './AvatarWes.jpg'
 import Prize from './components/Prize';
 import plus from './plus.png'
@@ -28,6 +27,8 @@ import soda from './soda.JPG'
 import text from './Text.jpg'
 import textone from './Text1.jpg'
 import star from './Star.png'
+import Prizes from './components/Prizes.js'
+import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
 
 const URL = "http://localhost:3000/prizes"
@@ -155,60 +156,26 @@ handleStarClick = (e) => {
           <button onClick={this.handleMinusClick} className="minus">-</button>
         </header>
 
-        {this.state.prizeBox ? <React.Fragment><div className="addPrize"><img className="addPrize" onClick={this.handleAddPrizeClick} src={plus} /></div><div className='flexbox-wrapper'><AddPrizeModal addPrize={this.state.addPrize} cancel={this.handleAddPrizeClick} /><div className="PrizeBoxContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker"><p className="boxprice">{this.state.bouncyball}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker"><p className="boxprice">{this.state.dino}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker"><p className="boxprice">{this.state.lizards}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker"><p className="boxprice">{this.state.peppa}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker"><p className="boxprice">{this.state.chalk}</p></div></div><div className="PrizeBoxContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker"><p className="boxprice">{this.state.fish}</p></div></div></div></React.Fragment> : null }
-
-        {this.state.usersShow ? <React.Fragment><div className="MeterBlue" ><img className="Profile" src={ellie} alt="Ellie" /><div className="count" onClick={this.handleStarClick} ><img className="count" src={star} alt="Ellie" /><div className="counter" alt="Ellie">{this.state.count}</div></div></div><AddTicketModal addTicket={this.state.addTicket} user={this.state.user} cancel={this.handleStarClick} plusTicket={this.plusTicket} /><div className="MeterBlue" onClick={this.checkUserClick} ><img className="Profile" src={avatar} alt="Jackson" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="MeterBlue"><img className="Profile" src={wes} alt="Wes" /><div className="count"><img className="count" src={star} /><div onClick={this.handlePlusClick} className="counter">{this.state.count}</div></div></div><div className="UserBottomSpace"></div></React.Fragment> : null}
-
-
-          <div className="MeterBlue">
-        <img className="Profile" src={avatar} alt="jackson" />
-        <div className="count">
-          <img className="count" src={star} />
-          <div onClick={this.handlePlusClick} className="counter">{this.state.count}</div>
-        </div>
-        </div>
-
-          <div>
-
-          <div onClick={this.handlePrizeClick} >
-          {this.state.bouncyball <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker-user"><p className="price-user">{this.state.bouncyball}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.bouncyball} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.dino <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker-user"><p className="price-user">{this.state.dino}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.textone <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={textone} alt="text1" /><div className="yellow-sticker-user"><p className="price-user">{this.state.textone}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.lizards <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker-user"><p className="price-user">{this.state.lizards}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.peppa <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker-user"><p className="price-user">{this.state.peppa}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.chalk <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker-user"><p className="price-user">{this.state.chalk}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick}  >
-          {this.state.text <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={text} alt="text" /><div className="yellow-sticker-user"><p className="price-user">{this.state.text}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
-          <div onClick={this.handlePrizeClick} >
-          {this.state.fish <= this.state.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={fish} alt="fish" /><div className="yellow-sticker-user"><p className="price-user">{this.state.fish}</p></div><Modal show={this.state.show} prize={this.state.prize} count={this.state.count} price={this.state.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
-          </div>
-
+        <Router>
           <div className="nav">
-            <button onClick={this.handleUserClick} >Users</button>
-            <button onClick={this.handlePrizeBoxClick} >Prize Box</button>
+            <Link to="/">
+              <button onClick={this.handleUserClick} >Home</button>
+            </Link>
+            <Link to="/prizes">
+              <button onClick={this.handlePrizeBoxClick} count={this.state.count} addTicket={this.state.addTicket} user={this.state.user} >Prizes</button>
+            </Link>
           </div>
+          <Switch>
+            <Route path="/prizes">
+              <Prizes handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
 
-          </div>
-      </div>
+  </div>
     );
   }
 }
