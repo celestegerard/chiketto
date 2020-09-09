@@ -169,7 +169,8 @@ border-radius: 16px;
   }
 
   .Modalmain {
-  position: fixed;
+    z-index:18;
+  position: absolute;
   background: #B0E0FB;
   width: 90%;
   margin-right: 0px;

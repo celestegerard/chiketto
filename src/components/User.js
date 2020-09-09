@@ -26,23 +26,23 @@ export default class User extends React.Component {
       <div>
 
       <div onClick={this.handlePrizeClick} >
-      {this.props.bouncyball <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={bouncyball} alt="bouncyball" /><div className="yellow-sticker-user"><p className="price-user">{this.props.bouncyball}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.bouncyball} /></div></React.Fragment> : null }
+      {this.props.bouncyball <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={bouncyball} alt="bouncyball" onClick={this.props.handlePrizeClick}  /><div className="yellow-sticker-user"><p className="price-user">{this.props.bouncyball}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.bouncyball} /></div></React.Fragment> : null }
       </div>
 
       <div onClick={this.handlePrizeClick}  >
-      {this.props.dino <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={dino} alt="dino" /><div className="yellow-sticker-user"><p className="price-user">{this.props.dino}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+      {this.props.dino <= this.props.count ? <React.Fragment><div class="PrizeContainer" ><img className="Prize" src={dino} alt="dino" onClick={this.props.handlePrizeClick}  /><div className="yellow-sticker-user"><p className="price-user">{this.props.dino}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
       </div>
 
       <div onClick={this.handlePrizeClick}  >
-      {this.props.lizards <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={lizards} alt="lizards" /><div className="yellow-sticker-user"><p className="price-user">{this.props.lizards}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+      {this.props.lizards <= this.props.count ? <React.Fragment><div class="PrizeContainer" ><img className="Prize" src={lizards} alt="lizards"  onClick={this.props.handlePrizeClick} /><div className="yellow-sticker-user"><p className="price-user">{this.props.lizards}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
       </div>
 
       <div onClick={this.handlePrizeClick}  >
-      {this.props.peppa <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={peppa} alt="peppa" /><div className="yellow-sticker-user"><p className="price-user">{this.props.peppa}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+      {this.props.peppa <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={peppa} alt="peppa" onClick={this.props.handlePrizeClick}  /><div className="yellow-sticker-user"><p className="price-user">{this.props.peppa}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
       </div>
 
       <div onClick={this.handlePrizeClick}  >
-      {this.props.chalk <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={chalk} alt="chalk" /><div className="yellow-sticker-user"><p className="price-user">{this.props.chalk}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
+      {this.props.chalk <= this.props.count ? <React.Fragment><div class="PrizeContainer"><img className="Prize" src={chalk} alt="chalk" onClick={this.props.handlePrizeClick}  /><div className="yellow-sticker-user"><p className="price-user">{this.props.chalk}</p></div><Modal show={this.props.show} prize={this.props.prize} count={this.props.count} price={this.props.price} subtractFromCount={this.subtractFromCount}/></div></React.Fragment> : null }
       </div>
 
       <div onClick={this.handlePrizeClick} >
