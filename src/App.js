@@ -41,8 +41,6 @@ class App extends Component {
     show: false,
     prize: 'b',
     price: 0,
-    usersShow: false,
-    prizeBox: false,
     prizes: [],
     addPrize: false,
     addTicket: false,
@@ -161,7 +159,7 @@ handleStarClick = (e) => {
               <Prizes handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home count={this.state.count} handleStarClick={this.handleStarClick} />
+              <Home count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
             </Route>
           </Switch>
         </Router>

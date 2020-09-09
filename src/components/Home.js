@@ -21,7 +21,7 @@ export default class Home extends React.Component {
     <div className="counter" alt="Ellie">{this.props.count}</div>
     </div>
     </div>
-    <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.handleStarClick} plusTicket={this.plusTicket} />
+    <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.props.cancel} plusTicket={this.props.plusTicket} />
 
     <div className="MeterBlue" onClick={this.checkUserClick} alt="Jackson" >
     <img className="Profile" src={avatar} />
