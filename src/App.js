@@ -8,18 +8,15 @@ import {
 import './App.css';
 import settings from './settings.jpg'
 import Modal from './components/Modal'
-import ellie from './AvatarEllie.jpg'
-import avatar from './Avatar.jpg'
-import wes from './AvatarWes.jpg'
 import Prize from './components/Prize';
 import plus from './plus.png'
-import soda from './soda.JPG'
 import text from './Text.jpg'
 import textone from './Text1.jpg'
 import star from './Star.png'
 import Prizes from './components/Prizes.js'
 import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
+import User from './components/User.js'
 
 const URL = "http://localhost:3000/prizes"
 
@@ -147,6 +144,9 @@ handleStarClick = (e) => {
 
         <Router>
           <div className="nav">
+            <Link to="/users">
+              <button>Users</button>
+            </Link>
             <Link to="/">
               <button onClick={this.handleUserClick} >Home</button>
             </Link>
@@ -155,6 +155,9 @@ handleStarClick = (e) => {
             </Link>
           </div>
           <Switch>
+            <Route path="/users">
+              <User prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+            </Route>
             <Route path="/prizes">
               <Prizes handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
