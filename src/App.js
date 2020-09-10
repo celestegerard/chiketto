@@ -21,7 +21,6 @@ import User from './components/User.js'
 const URL = "http://localhost:3000/prizes"
 
 
-
 class App extends Component {
 
   state = {
@@ -53,13 +52,12 @@ class App extends Component {
       }
     })
     .then(res => res.text())
-    .then(prizes => console.log(prizes))
+    .then(prizes => this.setState({ prizes }))
   }
 
   generatePrizes = () => {
-  return this.state.prizes.map(prize => console.log("DAH PRIZES " + prize.prizeimage))
-}
-
+    return this.props.prizes.map(prize => console.log(prize))
+  }
 
   subtractFromCount = () => {
     console.log("Prize at the subtract " + this.state.prize)
@@ -67,7 +65,7 @@ class App extends Component {
     const count = this.state.count - this.state.price
     this.setState({ count })
     const prizeName = this.state.prize
-    this.setState({ 
+    this.setState({
       [prizeName] : 15,
       show: !this.state.show
      })
@@ -135,7 +133,6 @@ handleStarClick = (e) => {
 
 
   render() {
-    const prizes = this.generatePrizes();
     console.log(this.state.count)
 
     return (
@@ -162,7 +159,7 @@ handleStarClick = (e) => {
               <User subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/prizes">
-              <Prizes handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <Prizes prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
