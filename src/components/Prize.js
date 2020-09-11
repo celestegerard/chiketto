@@ -11,7 +11,7 @@ class Prize extends Component {
       <div className="PrizeBoxContainer">
       <img className="Prize" src={bouncyball} alt={this.props.prize.title} />
       <div className="yellow-sticker">
-      <p className="boxprice">{this.props.prize.text}</p>
+      <p className="boxprice">{this.props.prize.price}</p>
       </div>
       </div>
     )

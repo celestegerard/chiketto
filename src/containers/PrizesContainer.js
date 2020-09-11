@@ -13,9 +13,8 @@ import Prize from '../components/Prize.js';
 export default class PrizesContainer extends React.Component {
 
   generatePrizes = () => {
-    return this.props.prizes.map(prize => <Prize prize={prize} />)
+    return this.props.prizes.map(prize => <Prize prize={prize} key={prize.id} />)
   }
-
 
 
   render() {
@@ -32,6 +31,8 @@ export default class PrizesContainer extends React.Component {
       <div className='flexbox-wrapper'>
       {crizes}
       <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} />
+      </div>
+      <div>
       </div>
       </React.Fragment>
     )
