@@ -19,7 +19,7 @@ export default class Prizes extends React.Component {
 
   render() {
 
-    const prizes = this.generatePrizes();
+    // const prizes = this.generatePrizes();
 
     return (
       <p>hey!</p>

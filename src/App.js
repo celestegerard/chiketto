@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   generatePrizes = () => {
-    return this.props.prizes.map(prize => console.log(prize))
+    console.log(this.state.prizes)
   }
 
   subtractFromCount = () => {
@@ -133,10 +133,10 @@ handleStarClick = (e) => {
 
 
   render() {
-    console.log(this.state.count)
+    const prize = this.generatePrizes();
+    console.log(prize)
 
     return (
-
       <div className="App">
         <header className="App-header">
           <button onClick={this.handleMinusClick} className="minus">-</button>
