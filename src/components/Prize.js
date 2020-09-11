@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 
+import bouncyball from '../prizes/bouncyball.jpg'
+
 class Prize extends Component {
 
 
   render() {
 
-    const prizes = this.generatePrizes();
-
     return(
-      <React.Fragment>
-        { prizes }
-      </React.Fragment>
+      <div className="PrizeBoxContainer">
+      <img className="Prize" src={bouncyball} alt={this.props.prize.title} />
+      <div className="yellow-sticker">
+      <p className="boxprice">{this.props.prize.text}</p>
+      </div>
+      </div>
     )
   }
 }

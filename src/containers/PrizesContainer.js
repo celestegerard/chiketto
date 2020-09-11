@@ -10,82 +10,30 @@ import fish from '../prizes/fish.jpg'
 import Prize from '../components/Prize.js';
 
 
-export default class Prizes extends React.Component {
+export default class PrizesContainer extends React.Component {
 
   generatePrizes = () => {
-    this.props.prizes.map(prize => console.log(prize))
+    return this.props.prizes.map(prize => <Prize prize={prize} />)
   }
+
+
 
   render() {
 
-    const prizes = this.generatePrizes();
+    const crizes = this.generatePrizes();
 
     return (
       <React.Fragment>
       <div className="addPrize">
       <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
       </div>
+      <div>
+      </div>
       <div className='flexbox-wrapper'>
+      {crizes}
       <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} />
-      { prizes }
       </div>
       </React.Fragment>
     )
   }
 }
-
-// <div className="addPrize">
-// <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
-// </div>
-// <div className='flexbox-wrapper'>
-// <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} />
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={bouncyball} alt="bouncyball" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.bouncyball}</p>
-// </div>
-// </div>
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={dino} alt="dino" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.dino}</p>
-// </div>
-// </div>
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={lizards} alt="lizards" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.lizards}</p>
-// </div>
-// </div>
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={peppa} alt="peppa" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.peppa}</p>
-// </div>
-// </div>
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={chalk} alt="chalk" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.chalk}</p>
-// </div>
-// </div>
-//
-//
-// <div className="PrizeBoxContainer">
-// <img className="Prize" src={fish} alt="fish" />
-// <div className="yellow-sticker">
-// <p className="boxprice">{this.props.fish}</p>
-// </div>
-// </div>
-
-// </div>
