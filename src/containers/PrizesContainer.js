@@ -7,22 +7,29 @@ import lizards from '../prizes/lizards.jpg'
 import peppa from '../prizes/peppabandaid.jpg'
 import chalk from '../prizes/chalk.jpg'
 import fish from '../prizes/fish.jpg'
+import Prize from '../components/Prize.js';
 
 
 export default class Prizes extends React.Component {
 
-  // generatePrizes = () => {
-  //   console.log(this.props.prizes)
-  //   // return this.props.prizes.map(prize => console.log("DAH PRIZES " + prize.prizeimage))
-  // }
-
+  generatePrizes = () => {
+    this.props.prizes.map(prize => console.log(prize))
+  }
 
   render() {
 
-    // const prizes = this.generatePrizes();
+    const prizes = this.generatePrizes();
 
     return (
-      <p>hey!</p>
+      <React.Fragment>
+      <div className="addPrize">
+      <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
+      </div>
+      <div className='flexbox-wrapper'>
+      <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} />
+      { prizes }
+      </div>
+      </React.Fragment>
     )
   }
 }
@@ -80,4 +87,5 @@ export default class Prizes extends React.Component {
 // <p className="boxprice">{this.props.fish}</p>
 // </div>
 // </div>
+
 // </div>

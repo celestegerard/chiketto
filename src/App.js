@@ -13,7 +13,7 @@ import plus from './plus.png'
 import text from './Text.jpg'
 import textone from './Text1.jpg'
 import star from './Star.png'
-import Prizes from './components/Prizes.js'
+import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
 import User from './components/User.js'
@@ -51,12 +51,8 @@ class App extends Component {
         'Accept': 'application/json'
       }
     })
-    .then(res => res.text())
+    .then(res => res.json())
     .then(prizes => this.setState({ prizes }))
-  }
-
-  generatePrizes = () => {
-    console.log(this.state.prizes)
   }
 
   subtractFromCount = () => {
@@ -133,8 +129,7 @@ handleStarClick = (e) => {
 
 
   render() {
-    const prize = this.generatePrizes();
-    console.log(prize)
+
 
     return (
       <div className="App">
@@ -159,7 +154,7 @@ handleStarClick = (e) => {
               <User subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/prizes">
-              <Prizes prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
