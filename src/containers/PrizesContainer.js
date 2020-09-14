@@ -13,7 +13,7 @@ import Prize from '../components/Prize.js';
 export default class PrizesContainer extends React.Component {
 
   generatePrizes = () => {
-    return this.props.prizes.map(prize => <Prize prize={prize} key={prize.id} />)
+    return this.props.prizes.map(prize =>  <Prize prize={prize} key={prize.id} /> )
   }
 
 

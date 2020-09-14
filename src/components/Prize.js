@@ -9,9 +9,9 @@ class Prize extends Component {
 
     return(
       <div className="PrizeBoxContainer">
-      <img className="Prize" src={bouncyball} alt={this.props.prize.title} />
+      <img className="Prize" src={this.props.prize.prizeimage.url} alt={this.props.prize.title} />
       <div className="yellow-sticker">
-      <p className="boxprice">{this.props.prize.text}</p>
+      <p className="boxprice">{this.props.prize.price}</p>
       </div>
       </div>
     )

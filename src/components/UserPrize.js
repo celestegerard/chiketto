@@ -12,7 +12,7 @@ class UserPrize extends Component {
         <div class="PrizeContainer" >
           <img className="Prize" src={bouncyball} alt={this.props.prize.title}  onClick={this.props.handlePrizeClick} />
           <div className="yellow-sticker-user">
-            <p className="price-user">{this.props.prize.text}</p>
+            <p className="price-user">{this.props.prize.price}</p>
           </div>
         </div>
       </div>

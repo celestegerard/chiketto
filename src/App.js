@@ -18,7 +18,7 @@ import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
 import User from './components/User.js'
 
-const URL = "http://localhost:3000/prizes"
+const URL = "http://localhost:3000/api/v1/prizes"
 
 
 class App extends Component {
