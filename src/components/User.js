@@ -1,12 +1,6 @@
 import React from "react";
 import star from '../Star.png'
 import ellie from '../AvatarEllie.jpg'
-import bouncyball from '../prizes/bouncyball.jpg';
-import dino from '../prizes/dino.jpg'
-import lizards from '../prizes/lizards.jpg'
-import peppa from '../prizes/peppabandaid.jpg'
-import chalk from '../prizes/chalk.jpg'
-import fish from '../prizes/fish.jpg'
 import Modal from '../components/Modal'
 import UserPrize from '../components/UserPrize.js'
 
@@ -17,14 +11,20 @@ export default class User extends React.Component {
     filteredPrizes: []
   }
 
-  generatePrizes = () => {
-    return this.props.prizes.map(prize => <UserPrize prize={prize} />)
+
+  filterPrizes = () => {
+     this.props.prizes.filter(prize => prize.price <= this.props.count).map( filteredPrize => this.setState({ filteredPrizes: [...this.state.filteredPrizes, filteredPrize ] }) )
   }
 
+  listPrizes = () => {
+    return this.state.filteredPrizes.map(prize => <UserPrize prize={prize} key={prize.id} />)
+  }
 
   render() {
 
-const prizes = this.generatePrizes()
+    console.log(this.state.filteredPrizes)
+
+    const prizes = this.listPrizes()
 
     return (
       <React.Fragment>
