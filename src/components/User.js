@@ -17,22 +17,14 @@ export default class User extends React.Component {
     filteredPrizes: []
   }
 
-  filterPrizes = () => {
-    const filteredPrizes = this.props.prizes.filter(prize => prize.text <= this.props.count)
-    this.setState({ filteredPrizes })
-    console.log(this.state.filteredPrizes)
-  }
-
-  generatefilteredPrizes = () => {
-    if (this.state.filteredPrizes.length > 0) {
-
-    }
-    return this.state.filteredprizes.map(prize => <UserPrize handlePrizeClick={this.props.handlePrizeClick} prize={prize} key={prize.id} />)
+  generatePrizes = () => {
+    return this.props.prizes.map(prize => <UserPrize prize={prize} />)
   }
 
 
   render() {
 
+const prizes = this.generatePrizes()
 
     return (
       <React.Fragment>
@@ -44,6 +36,7 @@ export default class User extends React.Component {
       </div>
       </div>
       <div>
+        {prizes}
       </div>
 
       </React.Fragment>
