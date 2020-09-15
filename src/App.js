@@ -10,8 +10,6 @@ import settings from './settings.jpg'
 import Modal from './components/Modal'
 import Prize from './components/Prize';
 import plus from './plus.png'
-import text from './Text.jpg'
-import textone from './Text1.jpg'
 import star from './Star.png'
 import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
@@ -25,15 +23,6 @@ class App extends Component {
 
   state = {
     count: 0,
-    bouncyball: 2,
-    dino: 3,
-    peppa: 4,
-    chalk: 5,
-    lizards: 6,
-    fish: 7,
-    text: 6,
-    textone: 3,
-    soda: 1,
     show: false,
     prize: 'b',
     price: 0,
@@ -53,6 +42,11 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(prizes => this.setState({ prizes }))
+  }
+
+  handlePrizeSubmit = (e) => {
+    e.preventDefault();
+    console.log("HEY BEH BEH")
   }
 
   subtractFromCount = () => {
@@ -154,7 +148,7 @@ handleStarClick = (e) => {
               <User count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/prizes">
-              <PrizesContainer prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />

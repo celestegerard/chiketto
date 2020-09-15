@@ -13,7 +13,7 @@ export default class AddPrizeModal extends React.Component {
       <div className="ap-modalmain">
       <p className="ap-text">Add Prize</p>
       <form>
-      <input className="ap-input" type="text" name="Prize-name" placeholder="Prize 1" /><br />
+      <input className='ap-upload' type="text" name="Prize-name" placeholder="Prize 1" /><br />
       <select className="ap-price">
       <option selected value="1">1 ticket</option>
       <option value="2">2 tickets</option>
@@ -31,8 +31,8 @@ export default class AddPrizeModal extends React.Component {
       <option value="14">14 tickets</option>
       <option value="15">15 tickets</option>
       </select>
-        <input className="ap-upload" type="submit" value="Upload Image" />
-      <input className="ap-submit" type="submit" value="Add" />
+      <input type="file" accept="image/*" multiple={false}  />
+      <input className="ap-submit" type="submit" value="Add" onClick={this.props.handlePrizeSubmit }/>
       <p onClick={this.props.cancel} className="ap-no">Cancel</p>
       </form>
       </div>
@@ -41,3 +41,5 @@ export default class AddPrizeModal extends React.Component {
     )
   }
 }
+
+// <input type="text" name="Prize-name" placeholder="Prize 1" /><br />

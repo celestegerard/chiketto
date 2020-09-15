@@ -375,6 +375,7 @@ border-radius: 11px;
 .ap-upload {
   width: 242px;
 height: 48px;
+margin-bottom: 15px;
 border: solid 1px;
 border-radius: 11px;
 font-family: 'Work Sans', sans-serif;
