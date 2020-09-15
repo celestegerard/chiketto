@@ -1,12 +1,6 @@
 import React from "react";
 import plus from '../plus.png';
 import AddPrizeModal from '../components/AddPrizeModal.js';
-import bouncyball from '../prizes/bouncyball.jpg';
-import dino from '../prizes/dino.jpg'
-import lizards from '../prizes/lizards.jpg'
-import peppa from '../prizes/peppabandaid.jpg'
-import chalk from '../prizes/chalk.jpg'
-import fish from '../prizes/fish.jpg'
 import Prize from '../components/Prize.js';
 
 
