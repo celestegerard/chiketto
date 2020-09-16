@@ -26,6 +26,7 @@ export default class PrizesContainer extends React.Component {
       {crizes}
       <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
+      <div></div>
       <div className="UserBottomSpace">
       </div>
       </React.Fragment>
