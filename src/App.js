@@ -16,7 +16,8 @@ import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
 import User from './components/User.js'
 
-const URL = "http://localhost:3000/api/v1/prizes"
+const prizeURL = "http://localhost:3000/api/v1/prizes"
+const userURL = "http://localhost:3000/api/v1/users"
 
 
 class App extends Component {
@@ -29,20 +30,31 @@ class App extends Component {
     prizes: [],
     addPrize: false,
     addTicket: false,
-    user: ''
+    user: '',
+    users: []
   }
 
 
   componentDidMount() {
-    fetch( URL , {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(prizes => this.setState({ prizes }))
-  }
+  //   fetch( prizeURL , {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(prizes => this.setState({ prizes }))
+  // }
+
+  fetch( userURL , {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(users => this.setState({ users }))
+}
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
@@ -150,7 +162,7 @@ handleStarClick = (e) => {
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
+              <Home users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
             </Route>
           </Switch>
         </Router>

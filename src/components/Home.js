@@ -7,13 +7,19 @@ import wes from '../AvatarWes.jpg'
 
 export default class Home extends React.Component {
 
+  generateUsers = () => {
+    this.props.users.map(user => console.log(user))
+  }
 
   render() {
 
-    console.log(this.props.count)
+    const yay = this.generateUsers()
 
     return (
     <React.Fragment>
+      <div>
+        {yay}
+      </div>
     <div className="MeterBlue" >
     <img className="Profile" src={ellie} />
     <div className="count" onClick={this.props.handleStarClick} >
