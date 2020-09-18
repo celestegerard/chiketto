@@ -14,7 +14,7 @@ import star from './Star.png'
 import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
-import User from './components/User.js'
+import UserContainer from './components/UserContainer.js'
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
@@ -156,7 +156,7 @@ handleStarClick = (e) => {
           </div>
           <Switch>
             <Route path="/users">
-              <User count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
+              <UserContainer count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />

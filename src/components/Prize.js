@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import bouncyball from '../prizes/bouncyball.jpg'
 
 class Prize extends Component {
 

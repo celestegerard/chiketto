@@ -4,22 +4,21 @@ import star from '../Star.png'
 import AddTicketModal from '../components/AddTicketModal.js'
 import avatar from '../Avatar.jpg'
 import wes from '../AvatarWes.jpg'
+import User from './User.js'
 
 export default class Home extends React.Component {
 
   generateUsers = () => {
-    this.props.users.map(user => console.log(user))
+    return this.props.users.map(user => <User user={user} key={user.id} />)
   }
 
   render() {
 
-    const yay = this.generateUsers()
+    const yo = this.generateUsers()
 
     return (
     <React.Fragment>
-      <div>
-        {yay}
-      </div>
+      <div>{yo}</div>
     <div className="MeterBlue" >
     <img className="Profile" src={ellie} />
     <div className="count" onClick={this.props.handleStarClick} >
