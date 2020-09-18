@@ -31,7 +31,8 @@ class App extends Component {
     addPrize: false,
     addTicket: false,
     user: '',
-    users: []
+    users: [],
+    settings: false
   }
 
 
@@ -58,12 +59,9 @@ class App extends Component {
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
-    console.log("HEY BEH BEH")
   }
 
   subtractFromCount = () => {
-    console.log("Prize at the subtract " + this.state.prize)
-    console.log("Price at subtract" + this.state.price )
     const count = this.state.count - this.state.price
     this.setState({ count })
     const prizeName = this.state.prize
@@ -122,6 +120,12 @@ handleAddPrizeClick = () => {
   })
 }
 
+handleSettingsCancelClick = () => {
+  this.setState({
+    settings: false
+  })
+}
+
 handleStarClick = (e) => {
   console.log("its hitting")
   const user = e.target.alt
@@ -132,15 +136,20 @@ handleStarClick = (e) => {
   })
 }
 
+handleSettingsClick = () => {
+  this.setState({ settings: !this.state.settings })
+}
+
+addChild = () => {
+  console.log('add child works')
+}
+
 
   render() {
 
 
     return (
       <div className="App">
-        <header className="App-header">
-          <button onClick={this.handleMinusClick} className="minus">-</button>
-        </header>
 
         <Router>
           <div className="nav">
@@ -162,7 +171,7 @@ handleStarClick = (e) => {
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} cancel={this.handleStarClick} />
+              <Home addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>

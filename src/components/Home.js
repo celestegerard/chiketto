@@ -5,6 +5,8 @@ import AddTicketModal from '../components/AddTicketModal.js'
 import avatar from '../Avatar.jpg'
 import wes from '../AvatarWes.jpg'
 import User from './User.js'
+import settings from '../settings.png'
+import SettingsModal from '../components/SettingsModal.js'
 
 export default class Home extends React.Component {
 
@@ -14,36 +16,25 @@ export default class Home extends React.Component {
 
   render() {
 
+    console.log(this.props.settings)
+
     const yo = this.generateUsers()
 
     return (
     <React.Fragment>
+      <div>
+        <button onClick={this.handleMinusClick} className="minus">-</button>
+      </div>
+      <div className="addPrize">
+      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
+      </div>
+
+      <SettingsModal addChild={this.props.addChild} users={this.props.users} settings={this.props.settings}  cancel={this.props.handleSettingsCancelClick} />
+
       <div>{yo}</div>
-    <div className="MeterBlue" >
-    <img className="Profile" src={ellie} />
-    <div className="count" onClick={this.props.handleStarClick} >
-    <img className="count" src={star} alt="Ellie" />
-    <div className="counter" alt="Ellie">{this.props.count}</div>
-    </div>
-    </div>
+
     <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.props.cancel} plusTicket={this.props.plusTicket} />
 
-    <div className="MeterBlue" onClick={this.checkUserClick} alt="Jackson" >
-    <img className="Profile" src={avatar} />
-    <div className="count" onClick={this.props.handleStarClick} >
-    <img className="count" src={star} alt="Jackson"/>
-    <div className="counter">{this.props.count}</div>
-    </div>
-    </div>
-
-
-    <div className="MeterBlue">
-    <img className="Profile" alt="Wes" src={wes} />
-    <div className="count" alt="Wes" onClick={this.props.handleStarClick} >
-    <img className="count" src={star} alt="Wes" />
-    <div className="counter" alt="Wes" >{this.props.count}</div>
-    </div>
-    </div>
     <div className="UserBottomSpace">
     </div>
     </React.Fragment>

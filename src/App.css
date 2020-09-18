@@ -294,6 +294,7 @@ color: #FFFFFF;
 }
 
 .ap-modal {
+  z-index: 18;
   position: absolute;
   top: 0;
   left: 0;
@@ -303,6 +304,7 @@ color: #FFFFFF;
 }
 
 .ap-modalmain {
+  z-index: 19;
   position: fixed;
   background: #B0E0FB;
   width: 90%;
@@ -483,6 +485,16 @@ color: #ffffff;
   line-height: 23px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.s-modal {
+  width: 100%;
+  height: auto;
+  background-color: blue;
+}
+
+.header {
+  height: 55px;
 }
 
 
