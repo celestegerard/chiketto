@@ -176,6 +176,15 @@ postChild = (e) => {
   .catch(err => console.log(err));
 }
 
+deleteChild = (e) => {
+  console.log(e.target)
+  // fetch( userURL + id, {
+  //   method: 'DELETE',
+  // })
+  // .then(res => res.json())
+  // .then(res => console.log(res))
+}
+
 
   render() {
 
