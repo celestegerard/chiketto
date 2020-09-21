@@ -23,6 +23,8 @@ const userURL = "http://localhost:3000/api/v1/users"
 class App extends Component {
 
   state = {
+    name: '',
+    avatar: null,
     count: 0,
     show: false,
     prize: 'b',
@@ -32,7 +34,8 @@ class App extends Component {
     addTicket: false,
     user: '',
     users: [],
-    settings: false
+    settings: false,
+    addChild: false
   }
 
 
@@ -141,7 +144,17 @@ handleSettingsClick = () => {
 }
 
 addChild = () => {
-  console.log('add child works')
+  this.setState({
+    addChild: !this.state.addChild
+  })
+}
+
+submitChild = (e) => {
+  e.preventDefault();
+  this.setState({
+    name: e.target.parentNode.children[7].value
+   });
+  console.log(e.target.parentNode.children[9].files[0])
 }
 
 
@@ -171,7 +184,7 @@ addChild = () => {
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>

@@ -497,7 +497,9 @@ color: #ffffff;
   height: 55px;
 }
 
-
+.addChildSection {
+  height: 30px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
