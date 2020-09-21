@@ -151,10 +151,29 @@ addChild = () => {
 
 submitChild = (e) => {
   e.preventDefault();
+
   this.setState({
-    name: e.target.parentNode.children[7].value
-   });
-  console.log(e.target.parentNode.children[9].files[0])
+    name: e.target.parentNode.children[7].value,
+    avatar: e.target.parentNode.children[9].files[0]
+   })
+}
+
+postChild = (e) => {
+  e.preventDefault();
+  console.log(this.state.name)
+  console.log(this.state.avatar)
+  const child = new FormData();
+  child.append('name', this.state.name);
+  child.append('avatar', this.state.avatar);
+  child.append('count', 0);
+  for (var pair of child.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]);
+}
+  fetch( userURL, {
+    method: 'POST',
+    body: child
+  })
+  .catch(err => console.log(err));
 }
 
 
@@ -184,7 +203,7 @@ submitChild = (e) => {
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>
