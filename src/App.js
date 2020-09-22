@@ -177,12 +177,12 @@ postChild = (e) => {
 }
 
 deleteChild = (e) => {
-  console.log(e.target)
-  // fetch( userURL + id, {
-  //   method: 'DELETE',
-  // })
-  // .then(res => res.json())
-  // .then(res => console.log(res))
+  const id = e.target.id
+  fetch( userURL + '/' + id, {
+    method: 'DELETE',
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
 }
 
 
@@ -212,7 +212,7 @@ deleteChild = (e) => {
               <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>

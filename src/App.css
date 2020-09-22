@@ -304,14 +304,14 @@ color: #FFFFFF;
 }
 
 .ap-modalmain {
-  z-index: 19;
+  z-index: 22;
   position: fixed;
   background: #B0E0FB;
   width: 90%;
   margin-right: 0px;
   padding-top:15px;
   padding-bottom: 35px;
-  height: auto;
+  height: 600px;
   border-radius: 11px;
   border: none;
   top:50%;
@@ -378,8 +378,8 @@ border-radius: 11px;
 }
 
 .ap-upload {
-  width: 242px;
-height: 48px;
+  width: 180px;
+height: 40px;
 margin-bottom: 15px;
 border: solid 1px;
 border-radius: 11px;
@@ -388,16 +388,24 @@ font-style: normal;
 font-weight: bold;
 font-size: 23px;
 line-height: 23px;
-text-align: center;
+display: inline-block;
 
 color: #FFFFFF;
     background-color: #B0E0FB;
 }
 
+.childName {
+  float: left;
+  width: 120px;
+  text-align: left;
+  padding-left:15px;
+  padding-top:10px;
+}
+
 .ap-submit {
   margin-top: 24px;
   width: 127px;
-height: 48px;
+height: 52px;
 border: none;
 border-radius: 11px;
 font-family: 'Work Sans', sans-serif;
@@ -466,6 +474,7 @@ color: #ffffff;
   position: fixed;
   background: #B0E0FB;
   width: 90%;
+  height: auto;
   margin-right: 0px;
   padding-top:15px;
   padding-bottom: 35px;
@@ -498,7 +507,17 @@ color: #ffffff;
 }
 
 .addChildSection {
-  height: 30px;
+  height: 15px;
+}
+
+.deleteChild {
+  float: right;
+  width: 30px;
+  padding-top:8px;
+}
+
+.childList {
+  z-index: 20;
 }
 
 @keyframes App-logo-spin {
