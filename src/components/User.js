@@ -13,9 +13,9 @@ export default class User extends React.Component {
       <React.Fragment>
       <div className="MeterBlue" >
       <img className="Profile" src={this.props.user.avatar.url} />
-      <div className="count" onClick={this.props.filterPrizes} >
-      <img className="count" src={star} alt="Ellie" />
-      <div className="counter" alt="Ellie">{this.props.user.count}</div>
+      <div className="count" onClick={this.props.incrementCount} >
+      <img className="count" src={star} alt="star" />
+      <div className="counter" id={this.props.user.id}>{this.props.user.count}</div>
       </div>
       </div>
       </React.Fragment>

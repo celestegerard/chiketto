@@ -11,7 +11,7 @@ import SettingsModal from '../components/SettingsModal.js'
 export default class Home extends React.Component {
 
   generateUsers = () => {
-    return this.props.users.map(user => <User user={user} key={user.id} />)
+    return this.props.users.map(user => <User incrementCount={this.props.incrementCount} user={user} key={user.id} />)
   }
 
   render() {
