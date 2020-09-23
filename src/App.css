@@ -34,7 +34,8 @@
 }
 
 .Prize {
-  postion: absolute;
+  z-index: 3;
+  float: left;
   margin-top:15px;
   width:100%;
   height: auto;
@@ -53,8 +54,11 @@ border-radius: 16px;
 }
 
 .PrizeBoxContainer {
+  display: inline-block;
   width: 100%;
-  margin-bottom:15px;
+  padding-bottom:8px;
+  margin-bottom:8px;
+  padding-right:8px;
   border: 0.5px solid #E5E5E5;
   border-radius: 16px;
 }
@@ -135,13 +139,16 @@ border-radius: 16px;
   margin-bottom: 12px;
   font-size: 3em;
   font-family: 'Work Sans', sans-serif;
+  z-index: 16;
+  top: -110px;
 }
 
 .yellow-sticker {
-  margin-left: 95px;
   background-color: #FFE600;
   border-radius: 50%;
-  width: 60px;
+  float: right;
+  width: 70px;
+  z-index: 17;
 }
 
 .yellow-sticker-user {
@@ -521,7 +528,7 @@ color: #ffffff;
 }
 
 .header {
-  height: 25px;
+  height: 30px;
 }
 
 @keyframes App-logo-spin {

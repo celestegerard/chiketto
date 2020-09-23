@@ -26,9 +26,11 @@ class App extends Component {
     name: '',
     avatar: null,
     count: 0,
-    show: false,
-    prize: 'b',
+    title: '',
     price: 0,
+    prizeimage: null,
+    show: false,
+    prize: '',
     prizes: [],
     addPrize: false,
     addTicket: false,
@@ -62,6 +64,26 @@ class App extends Component {
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
+    const title = e.target.parentNode.children[0].value
+    const price = e.target.parentNode.children[2].value.split(" ")[0]
+    const prizeimage = e.target.parentNode.children[3].files[0]
+
+    this.setState({ title, price, prizeimage })
+
+    console.log( this.state.title, this.state.price, this.state.prizeimage )
+
+
+    //   const prize = new FormData();
+    //   prize.append('title', this.state.title);
+    //   prize.append('price', this.state.price);
+    //   child.append('count', 0);
+    //   fetch( userURL, {
+    //     method: 'POST',
+    //     body: child
+    //   })
+    //   .catch(err => console.log(err));
+    // }
+
   }
 
   subtractFromCount = () => {
@@ -181,9 +203,6 @@ postChild = (e) => {
   child.append('name', this.state.name);
   child.append('avatar', this.state.avatar);
   child.append('count', 0);
-  for (var pair of child.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]);
-}
   fetch( userURL, {
     method: 'POST',
     body: child
