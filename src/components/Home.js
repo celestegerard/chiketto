@@ -22,8 +22,7 @@ export default class Home extends React.Component {
 
     return (
     <React.Fragment>
-      <div>
-        <button onClick={this.handleMinusClick} className="minus">-</button>
+      <div className="header">
       </div>
       <div className="addPrize">
       <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />

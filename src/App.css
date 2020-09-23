@@ -520,6 +520,10 @@ color: #ffffff;
   z-index: 20;
 }
 
+.header {
+  height: 25px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
