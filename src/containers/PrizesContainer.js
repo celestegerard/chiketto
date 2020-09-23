@@ -25,7 +25,7 @@ export default class PrizesContainer extends React.Component {
       </div>
       <div className='flexbox-wrapper'>
       {crizes}
-      <AddPrizeModal addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
+      <AddPrizeModal postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
       <div></div>
       <div className="UserBottomSpace">

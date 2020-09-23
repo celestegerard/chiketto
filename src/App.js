@@ -42,48 +42,45 @@ class App extends Component {
 
 
   componentDidMount() {
-    fetch( prizeURL , {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(prizes => this.setState({ prizes }))
-  }
+  //   fetch( prizeURL , {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(prizes => this.setState({ prizes }))
+  // }
 
-//   fetch( userURL , {
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     }
-//   })
-//   .then(res => res.json())
-//   .then(users => this.setState({ users }))
-// }
+  fetch( userURL , {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(users => this.setState({ users }))
+}
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
     const title = e.target.parentNode.children[0].value
     const price = e.target.parentNode.children[2].value.split(" ")[0]
     const prizeimage = e.target.parentNode.children[3].files[0]
-
     this.setState({ title, price, prizeimage })
+  }
 
-    console.log( this.state.title, this.state.price, this.state.prizeimage )
-
-
-    //   const prize = new FormData();
-    //   prize.append('title', this.state.title);
-    //   prize.append('price', this.state.price);
-    //   child.append('count', 0);
-    //   fetch( userURL, {
-    //     method: 'POST',
-    //     body: child
-    //   })
-    //   .catch(err => console.log(err));
-    // }
-
+  postPrize = (e) => {
+    e.preventDefault();
+    const prize = new FormData();
+    prize.append('title', this.state.title);
+    prize.append('price', this.state.price);
+    prize.append('count', 0);
+    fetch( prizeURL, {
+      method: 'POST',
+      body: prize
+    })
+    .catch(err => console.log(err));
   }
 
   subtractFromCount = () => {
@@ -243,7 +240,7 @@ deleteChild = (e) => {
               <UserContainer count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
-              <PrizesContainer handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
