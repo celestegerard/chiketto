@@ -14,7 +14,7 @@ import star from './Star.png'
 import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
-import UserContainer from './components/UserContainer.js'
+import UsersContainer from './components/UsersContainer.js'
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
@@ -237,7 +237,7 @@ deleteChild = (e) => {
           </div>
           <Switch>
             <Route path="/users">
-              <UserContainer count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
+              <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
               <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
