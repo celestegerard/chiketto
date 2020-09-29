@@ -9,24 +9,25 @@ import User from './User.js'
 export default class UsersContainer extends React.Component {
 
   state = {
-    filteredPrizes: []
+    selectedUser: ''
   }
 
 
-  filterUsers = () => {
-     this.props.users.map( user => <User user={user} key={user.id} /> )
+  generateUser = () => {
+     return this.props.users.map( user => <User incrementCount={this.props.incrementCount} user={user} key={user.id} /> )
   }
 
 
   render() {
 
-    const yeep = this.filterUsers()
+    const heyhey = this.generateUser();
 
     return (
       <React.Fragment>
       <p>HEY!</p>
+
       <div>
-      {yeep}
+      {heyhey}
       </div>
 
       </React.Fragment>

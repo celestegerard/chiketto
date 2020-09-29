@@ -16,8 +16,6 @@ export default class Home extends React.Component {
 
   render() {
 
-    console.log(this.props.settings)
-
     const yo = this.generateUsers()
 
     return (
