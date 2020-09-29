@@ -4,33 +4,35 @@ import ellie from '../AvatarEllie.jpg'
 import Modal from '../components/Modal'
 import UserPrize from '../components/UserPrize.js'
 import User from './User.js'
+import settings from '../settings.png'
 
 
 export default class UsersContainer extends React.Component {
 
-  state = {
-    selectedUser: ''
-  }
-
 
   generateUser = () => {
-     return this.props.users.map( user => <User incrementCount={this.props.incrementCount} user={user} key={user.id} /> )
+     const boop = this.props.users.filter( user => user.name == "Ellie" )
+     console.log(boop)
   }
 
 
   render() {
 
-    const heyhey = this.generateUser();
 
     return (
       <React.Fragment>
-      <p>HEY!</p>
-
+      <div className="header">
+      </div>
+      <div className="addPrize">
+      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
+      </div>
       <div>
-      {heyhey}
       </div>
 
       </React.Fragment>
     )
   }
 }
+
+// const heyhey = this.generateUser();
+// {heyhey}
