@@ -5,6 +5,7 @@ import Modal from '../components/Modal'
 import UserPrize from '../components/UserPrize.js'
 import User from './User.js'
 import settings from '../settings.png'
+import Prize from '../components/Prize.js';
 
 
 export default class UsersContainer extends React.Component {
@@ -16,10 +17,17 @@ export default class UsersContainer extends React.Component {
      ))
   }
 
+  generatePrizes = () => {
+    return this.props.prizes.map(prize => <Prize prize={prize} key={prize.id} />)
+  }
+
 
   render() {
 
-    const boop = this.generateUser()
+    const selectedUser = this.generateUser()
+    const prizes = this.generatePrizes()
+
+    console.log("YEEE", this.props.prizes)
 
     return (
       <React.Fragment>
@@ -29,7 +37,10 @@ export default class UsersContainer extends React.Component {
       <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
       </div>
       <div>
-      {boop}
+      { selectedUser }
+      </div>
+      <div className='up-wrapper'>
+        { prizes }
       </div>
 
       </React.Fragment>

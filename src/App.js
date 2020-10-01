@@ -42,25 +42,25 @@ class App extends Component {
 
 
   componentDidMount() {
-  //   fetch( prizeURL , {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(prizes => this.setState({ prizes }))
-  // }
+    fetch( prizeURL , {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(prizes => this.setState({ prizes }))
+  }
 
-  fetch( userURL , {
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(users => this.setState({ users }))
-}
+//   fetch( userURL , {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     }
+//   })
+//   .then(res => res.json())
+//   .then(users => this.setState({ users }))
+// }
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
