@@ -42,6 +42,8 @@ export default class UsersContainer extends React.Component {
       <div className='up-wrapper'>
         { prizes }
       </div>
+      <div className="UserBottomSpace">
+      </div>
 
       </React.Fragment>
     )

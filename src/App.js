@@ -37,21 +37,34 @@ class App extends Component {
     user: '',
     users: [],
     settings: false,
-    addChild: false
+    addChild: false,
+    status: '',
+    fetch: []
   }
 
 
   componentDidMount() {
-    fetch( prizeURL , {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(prizes => this.setState({ prizes }))
-  }
 
+    Promise.all([
+      fetch( prizeURL ),
+      fetch( userURL ),
+    ]).then((results) =>
+    Promise.all(results.map(r => r.text()))
+  )
+  .then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
+)
+
+
+//     fetch( prizeURL , {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//       }
+//     })
+//     .then(res => res.json())
+//     .then(prizes => this.setState({ prizes }))
+//   }
+//
 //   fetch( userURL , {
 //     headers: {
 //       'Content-Type': 'application/json',
@@ -60,7 +73,7 @@ class App extends Component {
 //   })
 //   .then(res => res.json())
 //   .then(users => this.setState({ users }))
-// }
+}
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
@@ -164,7 +177,6 @@ handleSettingsCancelClick = () => {
 }
 
 handleStarClick = (e) => {
-  console.log("its hitting")
   const user = e.target.alt
   console.log(e.target.alt)
   this.setState({
@@ -194,8 +206,6 @@ submitChild = (e) => {
 
 postChild = (e) => {
   e.preventDefault();
-  console.log(this.state.name)
-  console.log(this.state.avatar)
   const child = new FormData();
   child.append('name', this.state.name);
   child.append('avatar', this.state.avatar);
@@ -219,6 +229,7 @@ deleteChild = (e) => {
 
   render() {
 
+    console.log(this.state.fetch[0])
 
     return (
       <div className="App">
