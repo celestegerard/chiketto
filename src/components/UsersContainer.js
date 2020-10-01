@@ -11,13 +11,16 @@ export default class UsersContainer extends React.Component {
 
 
   generateUser = () => {
-     return this.props.users.map( user => <User incrementCount={this.props.incrementCount} user={user} key={user.id} />)
+     return this.props.users.filter( user => user.name.includes('C')).map( filteredUser => (
+       <User incrementCount={this.props.incrementCount} user={filteredUser} key={filteredUser.id} />
+     ))
   }
 
 
   render() {
 
     const boop = this.generateUser()
+
     return (
       <React.Fragment>
       <div className="header">
@@ -26,7 +29,7 @@ export default class UsersContainer extends React.Component {
       <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
       </div>
       <div>
-      { boop }
+      {boop}
       </div>
 
       </React.Fragment>
@@ -34,5 +37,4 @@ export default class UsersContainer extends React.Component {
   }
 }
 
-// const heyhey = this.generateUser();
-// {heyhey}
+// <User incrementCount={this.props.incrementCount} user={user} key={user.id} />
