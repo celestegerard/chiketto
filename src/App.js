@@ -53,27 +53,8 @@ class App extends Component {
   )
   .then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
 )
-
-
-//     fetch( prizeURL , {
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       }
-//     })
-//     .then(res => res.json())
-//     .then(prizes => this.setState({ prizes }))
-//   }
-//
-//   fetch( userURL , {
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     }
-//   })
-//   .then(res => res.json())
-//   .then(users => this.setState({ users }))
 }
+
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
@@ -229,11 +210,8 @@ deleteChild = (e) => {
 
   render() {
 
-    console.log(this.state.fetch[0])
-
     return (
       <div className="App">
-
         <Router>
           <div className="nav">
             <Link to="/users">
