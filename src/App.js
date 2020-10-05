@@ -210,6 +210,8 @@ deleteChild = (e) => {
 
   render() {
 
+    console.log(this.state.fetch)
+
     return (
       <div className="App">
         <Router>
