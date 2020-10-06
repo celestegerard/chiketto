@@ -27,7 +27,7 @@ export default class Home extends React.Component {
       </div>
 
       <SettingsModal deleteChild={this.props.deleteChild} postChild={this.props.postChild} submitChild={this.props.submitChild} showAddChild={this.props.showAddChild} addChild={this.props.addChild} users={this.props.users} settings={this.props.settings}  cancel={this.props.handleSettingsCancelClick} />
-
+      
       <div>{yo}</div>
 
     <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.props.cancel} plusTicket={this.props.plusTicket} />

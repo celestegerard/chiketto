@@ -55,6 +55,11 @@ class App extends Component {
 )
 }
 
+setUsersState = () => {
+  const users = this.state.fetch
+  this.setState ({ users })
+}
+
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
@@ -211,9 +216,13 @@ deleteChild = (e) => {
   render() {
 
     console.log(this.state.fetch)
+    console.log(this.state.users)
+
+    const setUsers = this.setUsersState()
 
     return (
       <div className="App">
+        { this.props.fetch.empty? null : {setUsers} }
         <Router>
           <div className="nav">
             <Link to="/users">
@@ -234,7 +243,7 @@ deleteChild = (e) => {
               <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>
