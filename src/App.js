@@ -31,7 +31,7 @@ class App extends Component {
     prizeimage: null,
     show: false,
     prize: '',
-    prizes: [],
+    users: [],
     addPrize: false,
     addTicket: false,
     user: '',
@@ -53,11 +53,15 @@ class App extends Component {
   )
   .then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
 )
+
+setTimeout(() => {
+  this.setUsersState();
+}, 2000)
+
 }
 
 setUsersState = () => {
-  const users = this.state.fetch
-  this.setState ({ users })
+  console.log(this.state.fetch)
 }
 
 
@@ -215,14 +219,8 @@ deleteChild = (e) => {
 
   render() {
 
-    console.log(this.state.fetch)
-    console.log(this.state.users)
-
-    const setUsers = this.setUsersState()
-
     return (
       <div className="App">
-        { this.props.fetch.empty? null : {setUsers} }
         <Router>
           <div className="nav">
             <Link to="/users">
