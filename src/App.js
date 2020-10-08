@@ -31,7 +31,7 @@ class App extends Component {
     prizeimage: null,
     show: false,
     prize: '',
-    users: [],
+    user1: [],
     addPrize: false,
     addTicket: false,
     user: '',
@@ -56,12 +56,13 @@ class App extends Component {
 
 setTimeout(() => {
   this.setUsersState();
-}, 2000)
+}, 1000)
 
 }
 
 setUsersState = () => {
-  console.log(this.state.fetch)
+  this.state.fetch.map(thing => this.setState({ user1 : thing }))
+  console.log("YE", this.state.user1)
 }
 
 
