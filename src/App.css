@@ -459,6 +459,9 @@ color: #ffffff;
 
 .nav-button {
   width: 50px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .ap-price-row {

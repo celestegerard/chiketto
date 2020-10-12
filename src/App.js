@@ -33,7 +33,7 @@ class App extends Component {
     prizeimage: null,
     show: false,
     prize: '',
-    user1: [],
+    prizes: [],
     addPrize: false,
     addTicket: false,
     user: '',
@@ -45,23 +45,16 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
+  async componentDidMount() {
 
     Promise.all([
       fetch( prizeURL ),
       fetch( userURL ),
     ]).then((results) =>
-    Promise.all(results.map(r => r.text()))
-  )
-  .then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
+    Promise.all(results.map(r => r.json()))
+  ).then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
+  .then(this.setState({ users: this.state.fetch[1], prizes: this.state.fetch[0] }))
 )
-
-  this.setUsersState();
-}
-
-setUsersState = () => {
-  this.state.fetch.map(thing => this.setState({ user1 : thing }))
-  console.log("YE", this.state.user1)
 }
 
 
@@ -218,7 +211,8 @@ deleteChild = (e) => {
 
 
   render() {
-
+    console.log("USAHS", this.state.users)
+    console.log("PRIZES", this.state.prizes)
     return (
       <div className="App">
         <Router>

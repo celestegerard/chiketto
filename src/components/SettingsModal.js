@@ -2,7 +2,7 @@ import React from "react";
 export default class SettingsModal extends React.Component {
 
 generateUsers = () => {
-  return this.props.users.map(user => <React.Fragment><div className='ap-upload' type="text" name="Prize-name"><div className="childName">{user.name}</div><div className="deleteChild" onClick={this.props.deleteChild} id={user.id}>-</div></div><br /></React.Fragment> )
+  // return this.props.users.map(user => <React.Fragment><div className='ap-upload' type="text" name="Prize-name"><div className="childName">{user.name}</div><div className="deleteChild" onClick={this.props.deleteChild} id={user.id}>-</div></div><br /></React.Fragment> )
 }
 
   render() {
