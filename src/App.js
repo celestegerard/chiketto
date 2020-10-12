@@ -21,6 +21,9 @@ import PrizeScreen from './PrizeScreen.png'
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
 
+// bo.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
+// .then(this.setState({ users: this.state.fetch[1], prizes: this.state.fetch[0] }))
+
 
 class App extends Component {
 
@@ -45,15 +48,14 @@ class App extends Component {
   }
 
 
-  async componentDidMount() {
+  componentDidMount() {
 
     Promise.all([
       fetch( prizeURL ),
       fetch( userURL ),
     ]).then((results) =>
     Promise.all(results.map(r => r.json()))
-  ).then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
-  .then(this.setState({ users: this.state.fetch[1], prizes: this.state.fetch[0] }))
+  ).then(bo => this.setState({ prizes: bo[0], users: bo[1] })
 )
 }
 
