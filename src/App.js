@@ -15,6 +15,8 @@ import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
 import AddTicketModal from './components/AddTicketModal.js'
 import UsersContainer from './components/UsersContainer.js'
+import UserScreen from './UserScreen.png'
+import PrizeScreen from './PrizeScreen.png'
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
@@ -54,10 +56,7 @@ class App extends Component {
   .then(res => res.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
 )
 
-setTimeout(() => {
   this.setUsersState();
-}, 1000)
-
 }
 
 setUsersState = () => {
@@ -224,19 +223,16 @@ deleteChild = (e) => {
       <div className="App">
         <Router>
           <div className="nav">
-            <Link to="/users">
-              <button>Users</button>
-            </Link>
             <Link to="/">
-              <button onClick={this.handleUserClick} >Home</button>
+              <img className="nav-button" onClick={this.handleUserClick} src={UserScreen} />
             </Link>
             <Link to="/prizes">
-              <button onClick={this.handlePrizeBoxClick} addTicket={this.state.addTicket} user={this.state.user} >Prizes</button>
+              <img className="nav-button" onClick={this.handlePrizeBoxClick} addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>
             <Route path="/users">
-              <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
+              <UsersContainer users={this.state.user1}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
               <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
