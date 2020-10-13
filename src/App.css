@@ -366,7 +366,7 @@ font-size: 22px;
 color: #FFFFFF;
 line-height: 23px;
 text-align: center;
-background-color: #B0E0FB;
+background-color: #C1DAFF;
 border: 1px solid #FFFFFF;
 box-sizing: border-box;
 border-radius: 11px;
@@ -384,7 +384,7 @@ font-size: 22px;
 color: #FFFFFF;
 line-height: 23px;
 text-align: center;
-background-color: #B0E0FB;
+background-color: #C1DAFF;
 border: 1px solid #FFFFFF;
 box-sizing: border-box;
 border-radius: 11px;
@@ -392,6 +392,7 @@ border-radius: 11px;
 }
 
 .ap-upload {
+
   width: 180px;
 height: 40px;
 margin-bottom: 15px;
@@ -403,9 +404,9 @@ font-weight: bold;
 font-size: 23px;
 line-height: 23px;
 display: inline-block;
-
 color: #FFFFFF;
-    background-color: #C1DAFF;
+background-color: #C1DAFF;
+
 }
 
 .childName {
@@ -419,18 +420,17 @@ color: #FFFFFF;
 .ap-submit {
   margin-top: 24px;
   width: 127px;
-height: 52px;
-border: none;
-border-radius: 11px;
-font-family: 'Work Sans', sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 23px;
-line-height: 23px;
-text-align: center;
-
-color: #B0E0FB;
-    background-color: #ffffff;
+  height: 52px;
+  border: none;
+  border-radius: 11px;
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  color: #C1DAFF;
+  background-color: #ffffff;
 }
 
 .ap-no {
@@ -450,7 +450,7 @@ color: #ffffff;
 
   z-index: 16;
   width: 100%;
-  height: auto;
+  height: 96px;
   background-color: #ffffff;
   border-top: 1px solid #E6E6E6;
   position:fixed;
@@ -470,7 +470,7 @@ color: #ffffff;
   margin-left:45px;
   width: 242px;
   height: 48px;
-  border: solid 1px #FFFFFF;
+  border: solid 1px #C1DAFF;
   border-radius: 11px;
   margin-bottom: 15px;
 }
@@ -481,7 +481,7 @@ color: #ffffff;
   font-weight: 300;
   margin-top:12px;
   border: none;
-  background-color: #B0E0FB;
+  background-color: #C1DAFF;
   font-size: 23px;
   line-height: 23px;
   text-align: center;
@@ -541,6 +541,14 @@ color: #ffffff;
 
 .header {
   height: 30px;
+}
+
+.ap-file {
+  border: 1px solid;
+  color: white;
+  width: 180px;
+  height: 45px;
+  border-radius: 11px;
 }
 
 @keyframes App-logo-spin {

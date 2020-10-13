@@ -17,12 +17,12 @@ import AddTicketModal from './components/AddTicketModal.js'
 import UsersContainer from './components/UsersContainer.js'
 import UserScreen from './UserScreen.png'
 import PrizeScreen from './PrizeScreen.png'
+import UserScreenSelect from './UserScreenSelect.png'
+import PrizeScreenSelect from './PrizeScreenSelect.png'
+
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
-
-// bo.map(data => this.setState({ fetch: [...this.state.fetch, data ]}))
-// .then(this.setState({ users: this.state.fetch[1], prizes: this.state.fetch[0] }))
 
 
 class App extends Component {
@@ -44,7 +44,9 @@ class App extends Component {
     settings: false,
     addChild: false,
     status: '',
-    fetch: []
+    fetch: [],
+    page: false,
+    buyPrize: false
   }
 
 
@@ -55,7 +57,7 @@ class App extends Component {
       fetch( userURL ),
     ]).then((results) =>
     Promise.all(results.map(r => r.json()))
-  ).then(bo => this.setState({ prizes: bo[0], users: bo[1] })
+  ).then(d => this.setState({ prizes: d[0], users: d[1] })
 )
 }
 
@@ -73,10 +75,24 @@ class App extends Component {
     const prize = new FormData();
     prize.append('title', this.state.title);
     prize.append('price', this.state.price);
+    prize.append('prizeimage', this.state.prizeimage);
     prize.append('count', 0);
     fetch( prizeURL, {
       method: 'POST',
       body: prize
+    })
+    .catch(err => console.log(err));
+  }
+
+  postChild = (e) => {
+    e.preventDefault();
+    const child = new FormData();
+    child.append('name', this.state.name);
+    child.append('avatar', this.state.avatar);
+    child.append('count', 0);
+    fetch( userURL, {
+      method: 'POST',
+      body: child
     })
     .catch(err => console.log(err));
   }
@@ -93,6 +109,7 @@ class App extends Component {
 
   incrementCount = (e) => {
     e.preventDefault()
+    console.log(e.target.id)
     const id = e.target.id
     const count = e.target.innerHTML
     this.setState({ count })
@@ -142,16 +159,15 @@ handleUserClick = () => {
   })
 }
 
-handlePrizeBoxClick = () => {
-  this.setState({
-    usersShow: false,
-    prizeBox: !this.state.prizeBox
-  })
-}
-
 handleAddPrizeClick = () => {
   this.setState({
     addPrize: !this.state.addPrize
+  })
+}
+
+handleBuyPrizeClick = () => {
+  this.setState({
+    buyPrize: !this.state.buyPrize
   })
 }
 
@@ -181,7 +197,7 @@ addChild = () => {
 }
 
 submitChild = (e) => {
-  e.preventDefault();
+  e.preventDefault()
 
   this.setState({
     name: e.target.parentNode.children[7].value,
@@ -189,32 +205,28 @@ submitChild = (e) => {
    })
 }
 
-postChild = (e) => {
-  e.preventDefault();
-  const child = new FormData();
-  child.append('name', this.state.name);
-  child.append('avatar', this.state.avatar);
-  child.append('count', 0);
-  fetch( userURL, {
-    method: 'POST',
-    body: child
-  })
-  .catch(err => console.log(err));
-}
 
 deleteChild = (e) => {
+  e.preventDefault();
   const id = e.target.id
   fetch( userURL + '/' + id, {
     method: 'DELETE',
   })
   .then(res => res.json())
   .then(res => console.log(res))
+  .then(this.setState({ settings: !this.state.settings }))
 }
 
+setUserPage = () => {
+  console.log("User Page")
+}
+
+setPrizePage = () => {
+  console.log("Prize Page")
+}
 
   render() {
-    console.log("USAHS", this.state.users)
-    console.log("PRIZES", this.state.prizes)
+
     return (
       <div className="App">
         <Router>
@@ -223,12 +235,12 @@ deleteChild = (e) => {
               <img className="nav-button" onClick={this.handleUserClick} src={UserScreen} />
             </Link>
             <Link to="/prizes">
-              <img className="nav-button" onClick={this.handlePrizeBoxClick} addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
+              <img className="nav-button" addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>
             <Route path="/users">
-              <UsersContainer users={this.state.user1}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
+              <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
               <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />

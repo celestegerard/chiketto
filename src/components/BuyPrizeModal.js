@@ -1,12 +1,9 @@
 import React from "react";
-export default class AddPrizeModal extends React.Component {
+export default class BuyPrizeModal extends React.Component {
 
-  generatePrizes = () => {
-
-  }
 
   render() {
-    if(!this.props.addPrize){
+    if(!this.props.buyPrize){
           return null;
       }
 
