@@ -214,16 +214,8 @@ deleteChild = (e) => {
   })
   .then(res => res.json())
   .then(res => console.log(res))
-  .then(this.setState({ settings: !this.state.settings }))
 }
 
-setUserPage = () => {
-  console.log("User Page")
-}
-
-setPrizePage = () => {
-  console.log("Prize Page")
-}
 
   render() {
 
