@@ -13,7 +13,7 @@ export default class PrizesContainer extends React.Component {
 
   render() {
 
-    const crizes = this.generatePrizes();
+    const prizes = this.generatePrizes();
 
     return (
       <React.Fragment>
@@ -24,7 +24,7 @@ export default class PrizesContainer extends React.Component {
       <div>
       </div>
       <div className='flexbox-wrapper'>
-      {crizes}
+      {prizes}
       <AddPrizeModal postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
       <div></div>
