@@ -257,7 +257,7 @@ color: #FFFFFF;
 }
 
 .MeterBlue {
-    margin-bottom:17px;
+  margin-bottom:17px;
   z-index: 4;
   width: 173px;
   height: 173px;
@@ -463,11 +463,39 @@ color: #ffffff;
   top: 720px;
 }
 
-.nav-button {
+.nav-button-circle {
   width: 50px;
   margin-top: 15px;
-  margin-right: 20px;
   margin-left: 20px;
+  z-index: 18;
+  position: absolute;
+}
+
+
+.nav-button-circle-yellow {
+  width: 50px;
+  margin-top: 15px;
+  margin-left: 20px;
+  z-index: 18;
+  position: absolute;
+}
+
+.nav-button-star-yellow {
+  width: 50px;
+  margin-top: 15px;
+  margin-right: -60px;
+  margin-left: -60px;
+  z-index: 18;
+  position: absolute;
+}
+
+.nav-button-star {
+  width: 50px;
+  margin-top: 15px;
+  margin-right: -60px;
+  margin-left: -60px;
+  z-index: 19;
+  position: absolute;
 }
 
 .ap-price-row {

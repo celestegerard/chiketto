@@ -235,10 +235,12 @@ console.log(this.state.user)
         <Router>
           <div className="nav">
             <Link to="/">
-              <img className="nav-button" onClick={this.handleUserClick} src={UserScreen} />
+              <img className="nav-button-star-yellow" src={UserScreenSelect} />
+              <img className="nav-button-star" onClick={this.handleUserClick} src={UserScreen} />
             </Link>
             <Link to="/prizes">
-              <img className="nav-button" addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
+              <img className="nav-button-circle-yellow" src={PrizeScreenSelect} />
+              <img className="nav-button-circle" addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>
