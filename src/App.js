@@ -47,7 +47,8 @@ class App extends Component {
     status: '',
     fetch: [],
     page: false,
-    buyPrize: false
+    buyPrize: false,
+    homepage: true
   }
 
 
@@ -159,10 +160,8 @@ handlePrizeClick = (e) => {
 }
 
 handleUserClick = () => {
-  this.setState({
-    usersShow: !this.state.usersShow,
-    prizeBox: false
-  })
+  this.setState({ homepage: true })
+  console.log('it hit!')
 }
 
 handleAddPrizeClick = () => {
@@ -226,21 +225,26 @@ deleteChild = (e) => {
   .then(res => console.log(res))
 }
 
+handlePrizePageClick = () => {
+  this.setState({ homepage: false })
+}
+
 
   render() {
 
-console.log(this.state.user)
+    console.log(this.state.homepage)
+
     return (
       <div className="App">
         <Router>
           <div className="nav">
             <Link to="/">
-              <img className="nav-button-star-yellow" src={UserScreenSelect} />
+              { this.state.homepage ? <img className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
               <img className="nav-button-star" onClick={this.handleUserClick} src={UserScreen} />
             </Link>
             <Link to="/prizes">
-              <img className="nav-button-circle-yellow" src={PrizeScreenSelect} />
-              <img className="nav-button-circle" addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
+              { !this.state.homepage ? <img className="nav-button-circle-yellow" src={PrizeScreenSelect} /> : null }
+              <img className="nav-button-circle" onClick={this.handlePrizePageClick} addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>
