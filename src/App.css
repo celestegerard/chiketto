@@ -203,14 +203,15 @@ font-size: 22px;
 line-height: 23px;
 text-align: center;
 
-color: #B0E0FB;
+color: #C1DAFF;
+
     background-color: #ffffff;
 }
 
 .ModalButton-no {
   margin-top:8px;
   border: none;
-  background-color: #B0E0FB;
+  background-color: #C1DAFF;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -410,7 +411,8 @@ background-color: #C1DAFF;
 }
 
 .file-upload {
-font-color: white;
+text-align-last: center;
+font-size: 13px;
 }
 
 .childName {
@@ -495,7 +497,7 @@ color: #ffffff;
 
 .at-modalmain {
   position: fixed;
-  background: #B0E0FB;
+  background: #C1DAFF;
   width: 90%;
   height: auto;
   margin-right: 0px;

@@ -40,6 +40,7 @@ class App extends Component {
     addPrize: false,
     addTicket: false,
     user: '',
+    userid:'',
     users: [],
     settings: false,
     addChild: false,
@@ -109,10 +110,21 @@ class App extends Component {
 
   incrementCount = (e) => {
     e.preventDefault()
-    console.log(e.target.id)
-    const id = e.target.id
+    const user = e.target.parentNode.id
     const count = e.target.innerHTML
-    this.setState({ count })
+    const userid = e.target.id
+
+    this.setState({ count , user, userid  })
+    this.setState({ addTicket: !this.state.addTicket})
+
+  };
+
+  plusTicket = (e) => {
+
+    this.setState({ addTicket: !this.state.addTicket })
+    const id = this.state.userid
+
+    console.log(id)
 
     fetch( userURL + '/' + id, {
     method: 'PATCH',
@@ -127,14 +139,8 @@ class App extends Component {
   .then(res => res.json())
   .then(json => console.log(json))
 
-  };
-
-  plusTicket = () => {
-    this.setState({
-      count: this.state.count + 1,
-      addTicket: !this.state.addTicket
-    })
   }
+
 
   handleMinusClick = () => {
     this.setState(({ count }) => ({
@@ -177,6 +183,10 @@ handleSettingsCancelClick = () => {
   })
 }
 
+AddStarNoClick = () => {
+  this.setState({ addTicket: !this.state.addTicket })
+}
+
 handleStarClick = (e) => {
   const user = e.target.alt
   console.log(e.target.alt)
@@ -200,8 +210,8 @@ submitChild = (e) => {
   e.preventDefault()
 
   this.setState({
-    name: e.target.parentNode.children[7].value,
-    avatar: e.target.parentNode.children[9].files[0]
+    name: e.target.parentNode.children[6].value,
+    avatar: e.target.parentNode.children[8].files[0]
    })
 }
 
@@ -219,6 +229,7 @@ deleteChild = (e) => {
 
   render() {
 
+console.log(this.state.user)
     return (
       <div className="App">
         <Router>
@@ -238,7 +249,7 @@ deleteChild = (e) => {
               <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>
