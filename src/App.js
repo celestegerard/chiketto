@@ -121,7 +121,6 @@ class App extends Component {
 
   plusTicket = (e) => {
 
-    this.setState({ addTicket: !this.state.addTicket })
     const id = this.state.userid
 
     console.log(id)
@@ -139,6 +138,7 @@ class App extends Component {
   .then(res => res.json())
   .then(json => console.log(json))
 
+  this.setState({ addTicket: !this.state.addTicket })
   }
 
 
