@@ -409,6 +409,10 @@ background-color: #C1DAFF;
 
 }
 
+.file-upload {
+font-color: white;
+}
+
 .childName {
   float: left;
   width: 120px;
@@ -527,6 +531,7 @@ color: #ffffff;
 
 .addChildSection {
   height: 15px;
+  font-color: white;
 }
 
 .deleteChild {
