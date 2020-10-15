@@ -1,6 +1,8 @@
 import React from "react";
 import plus from '../plus.png';
+import minus from '../delete.png'
 import AddPrizeModal from '../components/AddPrizeModal.js';
+import DeletePrizeModal from '../components/DeletePrizeModal.js';
 import Prize from '../components/Prize.js';
 
 
@@ -19,13 +21,15 @@ export default class PrizesContainer extends React.Component {
       <React.Fragment>
         <div className="header"></div>
       <div className="addPrize">
+      <img className="addPrize" onClick={this.props.handleDeletePrizeClick} src={minus} />
       <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
       </div>
       <div>
       </div>
       <div className='flexbox-wrapper'>
       {prizes}
-      <AddPrizeModal postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
+      <DeletePrizeModal showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
+      <AddPrizeModal prizes={this.props.prizes}  postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
       <div></div>
       <div className="UserBottomSpace">

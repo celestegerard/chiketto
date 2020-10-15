@@ -323,7 +323,7 @@ color: #FFFFFF;
   margin-right: 0px;
   padding-top:15px;
   padding-bottom: 35px;
-  height: auto;
+  height: 150px;
   border-radius: 11px;
   border: none;
   top:50%;
@@ -410,6 +410,7 @@ background-color: #C1DAFF;
 .file-upload {
 text-align-last: center;
 font-size: 13px;
+width: 150px
 }
 
 .childName {
@@ -581,6 +582,24 @@ color: #ffffff;
   width: 180px;
   height: 45px;
   border-radius: 11px;
+}
+
+.ap-option {
+  margin-top: 24px;
+  margin-right:4px;
+  margin-left:4px;
+  width: 150px;
+  height: 52px;
+  border: 1px solid #FFFFFF;
+  border-radius: 11px;
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #C1DAFF;
 }
 
 @keyframes App-logo-spin {

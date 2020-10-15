@@ -48,7 +48,8 @@ class App extends Component {
     fetch: [],
     page: false,
     buyPrize: false,
-    homepage: true
+    homepage: true,
+    showDeletePrize: false
   }
 
 
@@ -229,10 +230,17 @@ handlePrizePageClick = () => {
   this.setState({ homepage: false })
 }
 
+deletePrize = () => {
+  console.log("deleted prize!")
+}
+
+handleDeletePrizeClick = () => {
+  this.setState({ showDeletePrize: !this.state.showDeletePrize })
+}
 
   render() {
 
-    console.log(this.state.homepage)
+    console.log(this.state.showDeletePrize)
 
     return (
       <div className="App">
@@ -252,7 +260,7 @@ handlePrizePageClick = () => {
               <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
-              <PrizesContainer postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer showDeletePrize={this.showDeletePrize} handleDeletePrizeClick={this.handleDeletePrizeClick} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />

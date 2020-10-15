@@ -6,8 +6,6 @@ class Prize extends Component {
 
   render() {
 
-    console.log(this.props.prize)
-
     return(
       <div className="PrizeBoxContainer">
         <img className="Prize" src={this.props.prize.prizeimage.url} alt={this.props.prize.title} />
