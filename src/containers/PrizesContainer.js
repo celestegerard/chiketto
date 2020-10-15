@@ -3,13 +3,14 @@ import plus from '../plus.png';
 import minus from '../delete.png'
 import AddPrizeModal from '../components/AddPrizeModal.js';
 import DeletePrizeModal from '../components/DeletePrizeModal.js';
+import BuyPrizeModal from '../components/BuyPrizeModal.js';
 import Prize from '../components/Prize.js';
 
 
 export default class PrizesContainer extends React.Component {
 
   generatePrizes = () => {
-    return this.props.prizes.map(prize =>  <Prize prize={prize} key={prize.id} /> )
+    return this.props.prizes.map(prize =>  <Prize buyPrize={this.props.buyPrize} prize={prize} key={prize.id} handleBuyPrizeClick={this.props.handleBuyPrizeClick} /> )
   }
 
 
@@ -28,6 +29,7 @@ export default class PrizesContainer extends React.Component {
       </div>
       <div className='flexbox-wrapper'>
       {prizes}
+      <BuyPrizeModal price={this.props.price} users={this.props.users} prize={this.props.prize} buyPrize={this.props.buyPrize} prizes={this.props.prizes}  />
       <DeletePrizeModal handleShowDeletePrize={this.props.handleShowDeletePrize} closeDeletePrize={this.props.closeDeletePrize} showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
       <AddPrizeModal prizes={this.props.prizes}  postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
