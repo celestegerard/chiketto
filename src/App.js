@@ -69,7 +69,7 @@ class App extends Component {
     e.preventDefault();
     const title = e.target.parentNode.children[0].value
     const price = e.target.parentNode.children[2].value.split(" ")[0]
-    const prizeimage = e.target.parentNode.children[3].files[0]
+    const prizeimage = e.target.parentNode.children[4].files[0]
     this.setState({ title, price, prizeimage })
   }
 
