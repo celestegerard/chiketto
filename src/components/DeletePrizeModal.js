@@ -19,7 +19,7 @@ export default class DeletePrizeModal extends React.Component {
 
         <p className="ap-text">Delete Prize</p>
         { prizes }
-        <p onClick={this.props.cancel} className="ap-no">Done</p>
+        <p onClick={this.props.closeDeletePrize} className="ap-no">Done</p>
 
       </div>
       </div>

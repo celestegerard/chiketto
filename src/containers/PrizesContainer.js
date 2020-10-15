@@ -28,7 +28,7 @@ export default class PrizesContainer extends React.Component {
       </div>
       <div className='flexbox-wrapper'>
       {prizes}
-      <DeletePrizeModal showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
+      <DeletePrizeModal closeDeletePrize={this.props.closeDeletePrize} showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
       <AddPrizeModal prizes={this.props.prizes}  postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
       <div></div>
