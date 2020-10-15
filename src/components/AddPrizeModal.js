@@ -19,7 +19,7 @@ export default class AddPrizeModal extends React.Component {
 
         <p className="ap-text">Add Prize</p>
         <form>
-          <input className='ap-upload' type="text" name="Prize-name" placeholder="Prize 1" onChange={this.props.handlePrizeSubmit} /><br />
+          <input className='ap-prizename' type="text" name="Prize-name" placeholder="Prize 1" onChange={this.props.handlePrizeSubmit} /><br />
           <select  className="ap-price" onChange={this.props.handlePrizeSubmit}>
             <option default value="2 Tickets">2 Tickets</option>
             <option value="3 Tickets">3 Tickets</option>

@@ -241,7 +241,9 @@ deletePrize = (e) => {
 }
 
 handleShowDeletePrize = () => {
-  this.setState({ showDeletePrize: !this.state.deletePrize })
+  this.setState({
+    showDeletePrize: !this.state.deletePrize
+   })
 }
 
 closeDeletePrize = () => {
