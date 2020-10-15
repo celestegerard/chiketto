@@ -21,14 +21,14 @@ export default class PrizesContainer extends React.Component {
       <React.Fragment>
         <div className="header"></div>
       <div className="addPrize">
-      <img className="addPrize" onClick={this.props.handleDeletePrizeClick} src={minus} />
+      <img className="addPrize" onClick={this.props.handleShowDeletePrize} src={minus} />
       <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
       </div>
       <div>
       </div>
       <div className='flexbox-wrapper'>
       {prizes}
-      <DeletePrizeModal closeDeletePrize={this.props.closeDeletePrize} showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
+      <DeletePrizeModal handleShowDeletePrize={this.props.handleShowDeletePrize} closeDeletePrize={this.props.closeDeletePrize} showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
       <AddPrizeModal prizes={this.props.prizes}  postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
       <div></div>

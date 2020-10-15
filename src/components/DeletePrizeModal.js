@@ -6,9 +6,9 @@ export default class DeletePrizeModal extends React.Component {
   }
 
   render() {
-    // if(!this.props.showDeletePrize){
-    //       return null;
-    //   }
+    if(!this.props.showDeletePrize){
+          return null;
+      }
 
       const prizes = this.generatePrizes()
 
