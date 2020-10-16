@@ -259,19 +259,21 @@ cancelBuyPrize = () => {
   this.setState({ buyPrize: false })
 }
 
-postBuyPrize = (e) => {
+prepBuyPrize = (e) => {
   e.preventDefault()
-  console.log("HEY", e.target.parentNode.children)
-  const price = e.target.parentNode.children[2].innerHTML.split(" ")[2]
   const username = e.target.parentNode.children[1].value
-
   const finduser = this.state.users.find( user => user.name === username )
-  const id = finduser.id
+  const userid = finduser.id
   const count = finduser.count
 
-  console.log("RIGHT?", count)
+  this.setState({ count, userid })
 
-  this.setState({ price, count })
+}
+
+postBuyPrize = (e) => {
+  e.preventDefault()
+
+  const id = this.state.userid
 
   fetch( userURL + '/' + id, {
   method: 'PATCH',
@@ -290,7 +292,7 @@ postBuyPrize = (e) => {
 
   render() {
 
-    console.log(this.state.users)
+    console.log("USER ID", this.state.userid)
 
     return (
       <div className="App">
@@ -310,7 +312,7 @@ postBuyPrize = (e) => {
               <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
-              <PrizesContainer postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
