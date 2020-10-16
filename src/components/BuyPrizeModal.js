@@ -17,9 +17,11 @@ export default class BuyPrizeModal extends React.Component {
       <React.Fragment>
       <div className="ap-modal">
       <div className="ap-modalmain">
-      <p className="ap-text">Buy <select>{userList}</select> this {this.props.prize} for {this.props.price} stars? </p>
-      <input className="ap-submit" type="submit" value="Buy" onClick={this.props.postPrize }/>
-      <p onClick={this.props.cancel} className="ap-no">Cancel</p>
+      <div className="bp-space"></div>
+      <select className="ap-price">{userList}</select>
+      <p className="ap-buytext">Trade in {this.props.price} stars<br/> for {this.props.prize}? </p>
+      <input className="ap-buy" type="submit" value="Buy" onClick={this.props.postPrize }/>
+      <p onClick={this.props.cancelBuyPrize} className="ap-no">Cancel</p>
       </div>
       </div>
       </React.Fragment>

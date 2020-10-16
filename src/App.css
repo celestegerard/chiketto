@@ -334,13 +334,31 @@ color: #FFFFFF;
 }
 
 .ap-text {
+  text-align: center;
   font-family: Work Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 23px;
-  line-height: 23px;
+  line-height: 27px;
 
   color: #FFFFFF;
+}
+
+.ap-buytext {
+  margin-top: 14px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 27px;
+
+  color: #FFFFFF;
+}
+
+.bp-space {
+  padding-top: 30px;
 }
 
 .ap-tix {
@@ -458,6 +476,22 @@ width: 150px
   color: #C1DAFF;
   background-color: #ffffff;
 }
+
+.ap-buy {
+  width: 127px;
+  height: 52px;
+  border: none;
+  border-radius: 11px;
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  color: #C1DAFF;
+  background-color: #ffffff;
+}
+
 
 .ap-no {
   font-family: 'Work Sans', sans-serif;
