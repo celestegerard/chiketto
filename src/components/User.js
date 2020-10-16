@@ -1,8 +1,5 @@
 import React from "react";
 import star from '../Star.png'
-import ellie from '../AvatarEllie.jpg'
-import Modal from '../components/Modal'
-import UserPrize from '../components/UserPrize.js'
 
 
 export default class User extends React.Component {
@@ -12,7 +9,7 @@ export default class User extends React.Component {
     return (
       <React.Fragment>
       <div className="MeterBlue" >
-      <img className="Profile" src={ this.props.user.avatar.url } />
+      <img className="Profile" src={ this.props.user.avatar.url } alt="profile"/>
       <div className="count" onClick={this.props.incrementCount} >
         <div id={this.props.user.name}>
       <img className="count" src={star} alt="star" />

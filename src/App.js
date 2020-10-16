@@ -6,14 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import settings from './settings.jpg'
-import Modal from './components/Modal'
-import Prize from './components/Prize';
-import plus from './plus.png'
-import star from './Star.png'
 import PrizesContainer from './containers/PrizesContainer.js'
 import Home from './components/Home.js'
-import AddTicketModal from './components/AddTicketModal.js'
 import UsersContainer from './components/UsersContainer.js'
 import UserScreen from './UserScreen.png'
 import PrizeScreen from './PrizeScreen.png'
@@ -126,7 +120,6 @@ class App extends Component {
 
     const id = this.state.userid
 
-    console.log(id)
 
     fetch( userURL + '/' + id, {
     method: 'PATCH',
@@ -311,17 +304,17 @@ fetch( prizeURL + '/' + prizeid, {
         <Router>
           <div className="nav">
             <Link to="/">
-              { this.state.homepage ? <img className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
-              <img className="nav-button-star" onClick={this.handleUserClick} src={UserScreen} />
+              { this.state.homepage ? <img alt="userscreen" className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
+              <img alt="nav star" className="nav-button-star" onClick={this.handleUserClick} src={UserScreen} />
             </Link>
             <Link to="/prizes">
-              { !this.state.homepage ? <img className="nav-button-circle-yellow" src={PrizeScreenSelect} /> : null }
-              <img className="nav-button-circle" onClick={this.handlePrizePageClick}  user={this.state.user} src={PrizeScreen} />
+              { !this.state.homepage ? <img alt="nav yellow circle" className="nav-button-circle-yellow" src={PrizeScreenSelect} /> : null }
+              <img alt="nav button circle" className="nav-button-circle" onClick={this.handlePrizePageClick}  user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>
             <Route path="/users">
-              <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
+              <UsersContainer users={this.state.users} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
               <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />

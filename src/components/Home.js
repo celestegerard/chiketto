@@ -1,8 +1,5 @@
 import React from "react";
-import star from '../Star.png'
 import AddTicketModal from '../components/AddTicketModal.js'
-import avatar from '../Avatar.jpg'
-import wes from '../AvatarWes.jpg'
 import User from './User.js'
 import settings from '../settings.png'
 import SettingsModal from '../components/SettingsModal.js'
@@ -22,7 +19,7 @@ export default class Home extends React.Component {
       <div className="header">
       </div>
       <div className="addPrize">
-      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
+      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} alt="settings" />
       </div>
 
       <SettingsModal deleteChild={this.props.deleteChild} postChild={this.props.postChild} submitChild={this.props.submitChild} showAddChild={this.props.showAddChild} addChild={this.props.addChild} users={this.props.users} settings={this.props.settings}  cancel={this.props.handleSettingsCancelClick} />

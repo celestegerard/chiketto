@@ -23,14 +23,12 @@ export default class UsersContainer extends React.Component {
     const selectedUser = this.generateUser()
     const prizes = this.generatePrizes()
 
-    console.log("YEEE", this.props.prizes)
-
     return (
       <React.Fragment>
       <div className="header">
       </div>
       <div className="addPrize">
-      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} />
+      <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} alt="settings" />
       </div>
       <div>
       { selectedUser }
@@ -45,5 +43,3 @@ export default class UsersContainer extends React.Component {
     )
   }
 }
-
-// <User incrementCount={this.props.incrementCount} user={user} key={user.id} />
