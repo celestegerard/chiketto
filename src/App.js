@@ -49,7 +49,8 @@ class App extends Component {
     page: false,
     buyPrize: false,
     homepage: true,
-    showDeletePrize: false
+    showDeletePrize: false,
+    prizeid: ''
   }
 
 
@@ -172,16 +173,14 @@ handleAddPrizeClick = () => {
 }
 
 handleBuyPrizeClick = (e) => {
+  const prizeid = e.target.id
   const price = e.target.parentNode.children[1].children[0].innerHTML
   const prize = e.target.alt
-  this.setState({ prize, price })
-  console.log(this.state.prize)
-  console.log(this.state.buyPrize)
+  this.setState({ prize, price, prizeid })
   this.setState({
     buyPrize: !this.state.buyPrize
   })
 }
-// .parentNode.children[1].children
 
 handleSettingsCancelClick = () => {
   this.setState({
@@ -260,7 +259,38 @@ cancelBuyPrize = () => {
   this.setState({ buyPrize: false })
 }
 
+postBuyPrize = (e) => {
+  e.preventDefault()
+  console.log("HEY", e.target.parentNode.children)
+  const price = e.target.parentNode.children[2].innerHTML.split(" ")[2]
+  const username = e.target.parentNode.children[1].value
+
+  const finduser = this.state.users.find( user => user.name === username )
+  const id = finduser.id
+  const count = finduser.count
+
+  console.log("RIGHT?", count)
+
+  this.setState({ price, count })
+
+  fetch( userURL + '/' + id, {
+  method: 'PATCH',
+  body: JSON.stringify({
+    count: this.state.count - this.state.price
+  }),
+  headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+})
+.then(res => res.json())
+.then(json => console.log(json))
+
+}
+
   render() {
+
+    console.log(this.state.users)
 
     return (
       <div className="App">
@@ -280,7 +310,7 @@ cancelBuyPrize = () => {
               <UsersContainer users={this.state.users}  count={this.state.count} prizes={this.state.prizes} subtractFromCount={this.subtractFromCount} handlePrizeClick={this.handlePrizeClick} prize={this.state.prize} show={this.state.show} count={this.state.count} plusTicket={this.plusTicket} />
             </Route>
             <Route path="/prizes">
-              <PrizesContainer cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
               <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />

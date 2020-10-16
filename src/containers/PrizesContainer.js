@@ -29,7 +29,7 @@ export default class PrizesContainer extends React.Component {
       </div>
       <div className='flexbox-wrapper'>
       {prizes}
-      <BuyPrizeModal cancelBuyPrize={this.props.cancelBuyPrize} price={this.props.price} users={this.props.users} prize={this.props.prize} buyPrize={this.props.buyPrize} prizes={this.props.prizes}  />
+      <BuyPrizeModal postBuyPrize={this.props.postBuyPrize} cancelBuyPrize={this.props.cancelBuyPrize} price={this.props.price} users={this.props.users} prize={this.props.prize} buyPrize={this.props.buyPrize} prizes={this.props.prizes}  />
       <DeletePrizeModal handleShowDeletePrize={this.props.handleShowDeletePrize} closeDeletePrize={this.props.closeDeletePrize} showDeletePrize={this.props.showDeletePrize} deletePrize={this.props.deletePrize} prizes={this.props.prizes}  />
       <AddPrizeModal prizes={this.props.prizes}  postPrize={this.props.postPrize} addPrize={this.props.addPrize} cancel={this.props.handleAddPrizeClick} handlePrizeSubmit={this.props.handlePrizeSubmit} />
       </div>
