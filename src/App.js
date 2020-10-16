@@ -36,6 +36,7 @@ class App extends Component {
     prizeimage: null,
     show: false,
     prize: '',
+    prizeid: '',
     prizes: [],
     addPrize: false,
     addTicket: false,
@@ -49,8 +50,7 @@ class App extends Component {
     page: false,
     buyPrize: false,
     homepage: true,
-    showDeletePrize: false,
-    prizeid: ''
+    showDeletePrize: false
   }
 
 
@@ -266,12 +266,17 @@ prepBuyPrize = (e) => {
   const userid = finduser.id
   const count = finduser.count
 
-  this.setState({ count, userid })
+  const findprize = this.state.prizes.find( prize => prize.title === this.state.prize)
+  const prizeid = findprize.id
+
+  this.setState({ count, userid, prizeid })
 
 }
 
 postBuyPrize = (e) => {
   e.preventDefault()
+
+  console.log(this.state.prizeid)
 
   const id = this.state.userid
 
@@ -288,11 +293,18 @@ postBuyPrize = (e) => {
 .then(res => res.json())
 .then(json => console.log(json))
 
+
+const prizeid = this.state.prizeid
+
+fetch( prizeURL + '/' + prizeid, {
+  method: 'DELETE',
+})
+.then(res => res.json())
+.then(res => console.log(res))
+
 }
 
   render() {
-
-    console.log("USER ID", this.state.userid)
 
     return (
       <div className="App">
@@ -304,7 +316,7 @@ postBuyPrize = (e) => {
             </Link>
             <Link to="/prizes">
               { !this.state.homepage ? <img className="nav-button-circle-yellow" src={PrizeScreenSelect} /> : null }
-              <img className="nav-button-circle" onClick={this.handlePrizePageClick} addTicket={this.state.addTicket} user={this.state.user} src={PrizeScreen} />
+              <img className="nav-button-circle" onClick={this.handlePrizePageClick}  user={this.state.user} src={PrizeScreen} />
             </Link>
           </div>
           <Switch>

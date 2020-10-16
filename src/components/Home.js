@@ -1,5 +1,4 @@
 import React from "react";
-import ellie from '../AvatarEllie.jpg'
 import star from '../Star.png'
 import AddTicketModal from '../components/AddTicketModal.js'
 import avatar from '../Avatar.jpg'

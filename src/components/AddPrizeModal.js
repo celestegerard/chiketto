@@ -1,16 +1,11 @@
 import React from "react";
 export default class AddPrizeModal extends React.Component {
 
-  generatePrizes = () => {
-    return this.props.prizes.map( prize => <React.Fragment><div className='ap-upload' type="text" name="Prize-name"><div className="childName">{prize.title}</div><div className="deleteChild" onClick={this.props.deletePrize} id={prize.id}>-</div></div><br /></React.Fragment> )
-  }
 
   render() {
     if(!this.props.addPrize){
           return null;
       }
-
-      const prizes = this.generatePrizes()
 
     return (
       <React.Fragment>

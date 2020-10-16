@@ -22,8 +22,8 @@ export default class PrizesContainer extends React.Component {
       <React.Fragment>
         <div className="header"></div>
       <div className="addPrize">
-      <img className="addPrize" onClick={this.props.handleShowDeletePrize} src={minus} />
-      <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} />
+      <img className="addPrize" onClick={this.props.handleShowDeletePrize} src={minus} alt="minus" />
+      <img className="addPrize" onClick={this.props.handleAddPrizeClick} src={plus} alt="plus" />
       </div>
       <div>
       </div>
