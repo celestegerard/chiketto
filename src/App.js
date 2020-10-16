@@ -120,7 +120,6 @@ class App extends Component {
 
     const id = this.state.userid
 
-
     fetch( userURL + '/' + id, {
     method: 'PATCH',
     body: JSON.stringify({
@@ -156,7 +155,6 @@ handlePrizeClick = (e) => {
 
 handleUserClick = () => {
   this.setState({ homepage: true })
-  console.log('it hit!')
 }
 
 handleAddPrizeClick = () => {
@@ -187,7 +185,6 @@ AddStarNoClick = () => {
 
 handleStarClick = (e) => {
   const user = e.target.alt
-  console.log(e.target.alt)
   this.setState({
     addTicket: !this.state.addTicket,
     user
@@ -268,8 +265,6 @@ prepBuyPrize = (e) => {
 
 postBuyPrize = (e) => {
   e.preventDefault()
-
-  console.log(this.state.prizeid)
 
   const id = this.state.userid
 
