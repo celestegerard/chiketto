@@ -79,7 +79,10 @@ class App extends Component {
       method: 'POST',
       body: prize
     })
-    .catch(err => console.log(err));
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .then(this.reloadData())
+     console.log(this.state.users)
   }
 
   postChild = (e) => {
@@ -92,7 +95,9 @@ class App extends Component {
       method: 'POST',
       body: child
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .then(this.reloadData())
+    .then(this.setState({ settings: false }))
   }
 
   subtractFromCount = () => {
@@ -229,8 +234,8 @@ deleteChild = (e) => {
   fetch( userURL + '/' + id, {
     method: 'DELETE',
   })
-  .then(res => res.json())
-  .then(res => console.log(res))
+  .then(this.setState({ settings: false }))
+  .then(this.reloadData())
 }
 
 handlePrizePageClick = () => {
