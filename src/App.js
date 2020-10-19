@@ -132,8 +132,20 @@ class App extends Component {
   })
   .then(res => res.json())
   .then(json => console.log(json))
+  .then(this.reloadData())
 
   this.setState({ addTicket: !this.state.addTicket })
+
+  }
+
+  reloadData = () => {
+    Promise.all([
+      fetch( prizeURL ),
+      fetch( userURL ),
+    ]).then((results) =>
+    Promise.all(results.map(r => r.json()))
+  ).then(d => this.setState({ prizes: d[0], users: d[1] })
+)
   }
 
 
@@ -205,8 +217,8 @@ submitChild = (e) => {
   e.preventDefault()
 
   this.setState({
-    name: e.target.parentNode.children[6].value,
-    avatar: e.target.parentNode.children[8].files[0]
+    name: e.target.parentNode.children[8].value,
+    avatar: e.target.parentNode.children[10].files[0]
    })
 }
 
