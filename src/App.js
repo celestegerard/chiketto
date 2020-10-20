@@ -95,10 +95,10 @@ class App extends Component {
       method: 'POST',
       body: child
     })
-    .catch(err => console.log(err))
-    .then(this.reloadData())
     .then(this.setState({ settings: false }))
-    this.reloadData();
+    .catch(err => console.log(err))
+    .finally(this.reloadData())
+
   }
 
   subtractFromCount = () => {
@@ -147,7 +147,7 @@ class App extends Component {
 
   reloadData = () => {
 
-    console.log("hit!")
+
     Promise.all([
       fetch( prizeURL ),
       fetch( userURL ),
@@ -239,7 +239,7 @@ deleteChild = (e) => {
     method: 'DELETE',
   })
   .then(this.setState({ settings: false }))
-  setTimeout(this.reloadData(), 1000);
+  .finally(this.reloadData())
 }
 
 handlePrizePageClick = () => {
