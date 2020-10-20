@@ -141,11 +141,9 @@ class App extends Component {
 
   this.setState({ addTicket: !this.state.addTicket })
 
-
   }
 
   reloadData = () => {
-
 
     Promise.all([
       fetch( prizeURL ),
@@ -154,8 +152,8 @@ class App extends Component {
     Promise.all(results.map(r => r.json()))
   ).then(d => this.setState({ prizes: d[0], users: d[1] })
 )
-  }
-
+console.log(this.state.prizes, this.state.users)
+}
 
   handleMinusClick = () => {
     this.setState(({ count }) => ({
@@ -300,6 +298,7 @@ postBuyPrize = (e) => {
 })
 .then(res => res.json())
 .then(json => console.log(json))
+.then(this.setState({ buyPrize: false }))
 
 
 const prizeid = this.state.prizeid
@@ -309,7 +308,7 @@ fetch( prizeURL + '/' + prizeid, {
 })
 .then(res => res.json())
 .then(res => console.log(res))
-
+this.reloadData()
 }
 
   render() {
