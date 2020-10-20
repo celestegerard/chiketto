@@ -144,6 +144,7 @@ class App extends Component {
   }
 
   reloadData = () => {
+    console.log('It hits!')
     Promise.all([
       fetch( prizeURL ),
       fetch( userURL ),
