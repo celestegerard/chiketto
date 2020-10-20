@@ -81,8 +81,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(json => console.log(json))
-    .then(this.reloadData())
-     console.log(this.state.users)
+    this.reloadData()
   }
 
   postChild = (e) => {
@@ -97,7 +96,7 @@ class App extends Component {
     })
     .then(this.setState({ settings: false }))
     .catch(err => console.log(err))
-    .finally(this.reloadData())
+    this.reloadData()
 
   }
 
@@ -239,7 +238,7 @@ deleteChild = (e) => {
     method: 'DELETE',
   })
   .then(this.setState({ settings: false }))
-  .finally(this.reloadData())
+  this.reloadData()
 }
 
 handlePrizePageClick = () => {
