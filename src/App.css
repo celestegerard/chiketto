@@ -631,11 +631,9 @@ color: #ffffff;
 }
 
 .ap-file {
-  border: 1px solid;
   color: white;
   width: 180px;
   height: 45px;
-  border-radius: 11px;
 }
 
 .ap-option {

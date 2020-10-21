@@ -26,7 +26,7 @@ export default class AddPrizeModal extends React.Component {
             <option value="9 Tickets">9 Tickets</option>
             <option value="10 Tickets">10 Tickets</option>
           </select><br />
-        <input type="file" accept="image/*" multiple={false} onChange={this.props.handlePrizeSubmit} /><br />
+        <input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.handlePrizeSubmit} /><br />
         <input className="ap-submit" type="submit" value="Add" onClick={this.props.postPrize }/>
         <p onClick={this.props.cancel} className="ap-no">Cancel</p>
         </form>
