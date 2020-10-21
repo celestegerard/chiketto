@@ -26,7 +26,7 @@ export default class Home extends React.Component {
 
       <div>{yo}</div>
 
-    <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.props.cancel} plusTicket={this.props.plusTicket} />
+    <AddTicketModal addTicket={this.props.addTicket} user={this.props.user} cancel={this.props.cancel} plusticket={this.props.plusticket} />
 
     <div className="UserBottomSpace">
     </div>

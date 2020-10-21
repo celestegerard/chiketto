@@ -12,7 +12,7 @@ export default class AddTicketModal extends React.Component {
       <div className="Modal">
       <div className="at-modalmain">
       <p className="at-text">Award {this.props.user} 1 star?</p>
-        <button onClick={this.props.plusTicket} className="ModalButton-yes"> Yes </button>
+        <button onClick={this.props.plusticket} className="ModalButton-yes"> Yes </button>
         <br />
         <button className="ModalButton-no" onClick={this.props.cancel} >No</button>
       </div>

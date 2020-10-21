@@ -57,8 +57,33 @@ class App extends Component {
     Promise.all(results.map(r => r.json()))
   ).then(d => this.setState({ prizes: d[0], users: d[1] })
 )
+
 }
 
+postChild = (e) => {
+  e.preventDefault()
+  const child = new FormData();
+  child.append('name', this.state.name);
+  child.append('avatar', this.state.avatar);
+  child.append('count', 0);
+
+  fetch( userURL, {
+    method: 'POST',
+    body: child
+  })
+  .then(this.setState({ settings: false }))
+  .catch(err => console.log(err))
+}
+
+reloadData = () => {
+  Promise.all([
+    fetch( prizeURL ),
+    fetch( userURL ),
+  ]).then((results) =>
+  Promise.all(results.map(r => r.json()))
+).then(d => this.setState({ prizes: d[0], users: d[1] })
+)
+}
 
   handlePrizeSubmit = (e) => {
     e.preventDefault();
@@ -82,25 +107,8 @@ class App extends Component {
     .then(res => res.json())
     .then(json => console.log(json))
     .then(this.setState({ addPrize: false }))
-    this.reloadData()
-    // this.reloadData()
   }
 
-  postChild = (e) => {
-    e.preventDefault();
-    const child = new FormData();
-    child.append('name', this.state.name);
-    child.append('avatar', this.state.avatar);
-    child.append('count', 0);
-    fetch( userURL, {
-      method: 'POST',
-      body: child
-    })
-    .then(this.setState({ settings: false }))
-    .catch(err => console.log(err))
-    this.reloadData()
-
-  }
 
   subtractFromCount = () => {
     const count = this.state.count - this.state.price
@@ -139,31 +147,12 @@ class App extends Component {
   })
   .then(res => res.json())
   .then(json => console.log(json))
-  .finally(this.f1())
+  .then(this.reloadData())
 
   this.setState({ addTicket: !this.state.addTicket })
 
   }
 
-
-
-  reloadData = () => {
-    console.log("YEP! WORKS!")
-
-    Promise.all([
-      fetch( prizeURL ),
-      fetch( userURL ),
-    ]).then((results) =>
-    Promise.all(results.map(r => r.json()))
-  ).then(d => this.setState({ prizes: d[0], users: d[1] })
-)
-console.log(this.state.prizes, this.state.users)
-}
-
-async f1() {
-  var x = await reloadData();
-  console.log(x); // 10
-}
 
   handleMinusClick = () => {
     this.setState(({ count }) => ({
@@ -246,7 +235,6 @@ deleteChild = (e) => {
     method: 'DELETE',
   })
   .then(this.setState({ settings: false }))
-  this.reloadData()
 }
 
 handlePrizePageClick = () => {
@@ -318,7 +306,6 @@ fetch( prizeURL + '/' + prizeid, {
 })
 .then(res => res.json())
 .then(res => console.log(res))
-this.reloadData()
 }
 
   render() {
@@ -344,7 +331,7 @@ this.reloadData()
               <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusTicket={this.plusTicket} />
+              <Home user={this.state.user} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusticket={this.plusticket} />
             </Route>
           </Switch>
         </Router>

@@ -21,7 +21,7 @@ generateUsers = () => {
       <p className="ap-text">Edit Child</p>
       <form className="childList">
         {users}
-      {this.props.showAddChild ? <React.Fragment><input className='ap-upload' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="file-upload" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <input className="ap-submit" type="submit" value="Add Child" onClick={this.props.addChild }/> }
+      {this.props.showAddChild ? <React.Fragment><input className='ap-nameinput' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><br/><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <input className="ap-submit" type="submit" value="Add Child" onClick={this.props.addChild }/> }
       <p onClick={this.props.cancel} className="ap-no">Cancel</p>
       </form>
       </div>
