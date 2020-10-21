@@ -81,7 +81,9 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(json => console.log(json))
+    .then(this.setState({ addPrize: false }))
     this.reloadData()
+    // this.reloadData()
   }
 
   postChild = (e) => {
@@ -137,13 +139,16 @@ class App extends Component {
   })
   .then(res => res.json())
   .then(json => console.log(json))
-  this.reloadData()
+  .finally(this.f1())
 
   this.setState({ addTicket: !this.state.addTicket })
 
   }
 
+
+
   reloadData = () => {
+    console.log("YEP! WORKS!")
 
     Promise.all([
       fetch( prizeURL ),
@@ -153,6 +158,11 @@ class App extends Component {
   ).then(d => this.setState({ prizes: d[0], users: d[1] })
 )
 console.log(this.state.prizes, this.state.users)
+}
+
+async f1() {
+  var x = await reloadData();
+  console.log(x); // 10
 }
 
   handleMinusClick = () => {

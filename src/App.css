@@ -460,7 +460,7 @@ width: 150px
 }
 
 .ap-submit {
-  margin-top: 24px;
+  margin-top: 4px;
   width: 127px;
   height: 52px;
   border: none;
@@ -631,6 +631,7 @@ color: #ffffff;
 }
 
 .ap-file {
+  margin-top: 10px;
   color: white;
   width: 180px;
   height: 45px;
