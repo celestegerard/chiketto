@@ -67,22 +67,34 @@ postChild = (e) => {
   child.append('avatar', this.state.avatar);
   child.append('count', 0);
 
-  fetch( userURL, {
-    method: 'POST',
-    body: child
-  })
-  .then(this.setState({ settings: false }))
-  .catch(err => console.log(err))
+  const postChild = async () => {
+    const res = await fetch( userURL, { method: 'POST', body: child })
+    const json = await res.json()
+    const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+    const loadjson = await Promise.all(loadres.map(r => r.json()))
+    const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+  }
+  postChild()
+  this.setState({ settings: false })
 }
 
-reloadData = () => {
-  Promise.all([
-    fetch( prizeURL ),
-    fetch( userURL ),
-  ]).then((results) =>
-  Promise.all(results.map(r => r.json()))
-).then(d => this.setState({ prizes: d[0], users: d[1] })
-)
+postBuyPrize = (e) => {
+  e.preventDefault()
+
+  const id = this.state.userid
+  const prizeid = this.state.prizeid
+
+  const postBuyPrize = async () => {
+    const res = await fetch( userURL + '/' + id, { method: 'PATCH', body: JSON.stringify({ count: this.state.count - this.state.price }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } })
+    const json = await res.json()
+    const deleteprize = await fetch( prizeURL + '/' + prizeid, { method: 'DELETE' })
+    const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+    const loadjson = await Promise.all(loadres.map(r => r.json()))
+    const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+  }
+  postBuyPrize()
+  this.setState({ buyPrize: false })
+
 }
 
   handlePrizeSubmit = (e) => {
@@ -100,13 +112,16 @@ reloadData = () => {
     prize.append('price', this.state.price);
     prize.append('prizeimage', this.state.prizeimage);
     prize.append('count', 0);
-    fetch( prizeURL, {
-      method: 'POST',
-      body: prize
-    })
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .then(this.setState({ addPrize: false }))
+
+    const postPrize = async () => {
+      const res = await fetch( prizeURL, { method: 'POST', body: prize })
+      const json = await res.json()
+      const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+      const loadjson = await Promise.all(loadres.map(r => r.json()))
+      const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+    }
+    postPrize()
+    this.setState({ addPrize: false })
   }
 
 
@@ -133,23 +148,16 @@ reloadData = () => {
 
   plusTicket = (e) => {
 
-    console.log("YEY")
-    const id = this.state.userid
-
-    fetch( userURL + '/' + id, {
-    method: 'PATCH',
-    body: JSON.stringify({
-      count: ++this.state.count
-    }),
-    headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-  })
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .finally(this.reloadData())
-  .finally(this.setState({ addTicket: !this.state.addTicket }))
+    const patchStar = async () => {
+      const id = this.state.userid
+      const res = await fetch( userURL + '/' + id, { method: 'PATCH', body: JSON.stringify({ count: ++this.state.count }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } })
+      const json = await res.json()
+      const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+      const loadjson = await Promise.all(loadres.map(r => r.json()))
+      const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+    }
+    patchStar()
+    this.setState({ addTicket: !this.state.addTicket })
 
   }
 
@@ -231,25 +239,36 @@ submitChild = (e) => {
 deleteChild = (e) => {
   e.preventDefault();
   const id = e.target.id
-  fetch( userURL + '/' + id, {
-    method: 'DELETE',
-  })
-  .then(this.setState({ settings: false }))
+
+  const deleteChild = async () => {
+    const res = await fetch( userURL + '/' + id, { method: 'DELETE' })
+    const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+    const loadjson = await Promise.all(loadres.map(r => r.json()))
+    const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+  }
+  deleteChild()
+
+  this.setState({ settings: false })
+}
+
+deletePrize = (e) => {
+  e.preventDefault();
+  const id = e.target.id
+
+  const deletePrize = async () => {
+    const res = await fetch( prizeURL + '/' + id, { method: 'DELETE'})
+    const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
+    const loadjson = await Promise.all(loadres.map(r => r.json()))
+    const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+  }
+  deletePrize()
+
 }
 
 handlePrizePageClick = () => {
   this.setState({ homepage: false })
 }
 
-deletePrize = (e) => {
-  e.preventDefault();
-  const id = e.target.id
-  fetch( prizeURL + '/' + id, {
-    method: 'DELETE',
-  })
-  .then(res => res.json())
-  .then(res => console.log(res))
-}
 
 handleShowDeletePrize = () => {
   this.setState({
@@ -279,34 +298,6 @@ prepBuyPrize = (e) => {
 
 }
 
-postBuyPrize = (e) => {
-  e.preventDefault()
-
-  const id = this.state.userid
-
-  fetch( userURL + '/' + id, {
-  method: 'PATCH',
-  body: JSON.stringify({
-    count: this.state.count - this.state.price
-  }),
-  headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-})
-.then(res => res.json())
-.then(json => console.log(json))
-.then(this.setState({ buyPrize: false }))
-
-
-const prizeid = this.state.prizeid
-
-fetch( prizeURL + '/' + prizeid, {
-  method: 'DELETE',
-})
-.then(res => res.json())
-.then(res => console.log(res))
-}
 
   render() {
 
