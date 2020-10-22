@@ -38,7 +38,7 @@ class App extends Component {
     userid:'',
     users: [],
     settings: false,
-    addChild: false,
+    addChild: true,
     editChild: false,
     status: '',
     fetch: [],
