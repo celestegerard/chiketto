@@ -75,7 +75,7 @@ postChild = (e) => {
     const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
   }
   postChild()
-  this.setState({ settings: false })
+  this.setState({ settings: false, addChild: false })
 }
 
 postBuyPrize = (e) => {
