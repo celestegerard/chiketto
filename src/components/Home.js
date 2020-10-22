@@ -22,7 +22,7 @@ export default class Home extends React.Component {
       <img className="addPrize" onClick={this.props.handleSettingsClick} src={settings} alt="settings" />
       </div>
 
-      <SettingsModal deleteChild={this.props.deleteChild} postChild={this.props.postChild} submitChild={this.props.submitChild} showAddChild={this.props.showAddChild} addChild={this.props.addChild} users={this.props.users} settings={this.props.settings}  cancel={this.props.handleSettingsCancelClick} />
+      <SettingsModal editChild={this.props.editChild} deleteChild={this.props.deleteChild} postChild={this.props.postChild} submitChild={this.props.submitChild} showAddChild={this.props.showAddChild} addChild={this.props.addChild} users={this.props.users} settings={this.props.settings}  cancel={this.props.handleSettingsCancelClick} />
 
       <div>{yo}</div>
 

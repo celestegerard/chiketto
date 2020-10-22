@@ -493,6 +493,24 @@ width: 150px
   background-color: #ffffff;
 }
 
+.ac-option {
+  margin-top: 12px;
+  margin-right:6px;
+  margin-left: 6px;
+  padding: 8px;
+  height: 25px;
+  border: solid 1px #ffffff;
+  border-radius: 11px;
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #C1DAFF;
+}
+
 .ap-buy {
   width: 127px;
   height: 52px;
