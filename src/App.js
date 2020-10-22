@@ -289,7 +289,10 @@ cancelBuyPrize = () => {
 
 prepBuyPrize = (e) => {
   e.preventDefault()
+  console.log(e.target.parentNode.children[1].value)
   const username = e.target.parentNode.children[1].value
+  if (username === "Name") {} else {
+
   const finduser = this.state.users.find( user => user.name === username )
   const userid = finduser.id
   const count = finduser.count
@@ -298,7 +301,8 @@ prepBuyPrize = (e) => {
   const prizeid = findprize.id
 
   this.setState({ count, userid, prizeid })
-
+  console.log("else statement is hitting!")
+}
 }
 
 
