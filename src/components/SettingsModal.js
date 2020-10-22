@@ -18,12 +18,12 @@ generateUsers = () => {
       <React.Fragment>
       <div className="ap-modal">
       <div className="ap-modalmain">
-      <p className="ap-text">Edit Child</p>
-      <form className="childList">
-        {users}
-      {this.props.showAddChild ? <React.Fragment><input className='ap-nameinput' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><br/><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <input className="ap-submit" type="submit" value="Add Child" onClick={this.props.addChild }/> }
+        <p className="ap-text">Edit Child</p>
+        {this.props.showAddChild ? <React.Fragment><input className='ap-nameinput' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><br/><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <input className="ap-submit" type="submit" value="Add Child" onClick={this.props.addChild }/> }
+        <form className="childList">
+          {users}
+        </form>
       <p onClick={this.props.cancel} className="ap-no">Cancel</p>
-      </form>
       </div>
       </div>
       </React.Fragment>
