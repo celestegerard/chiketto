@@ -1,6 +1,4 @@
 import React from "react";
-import whiteplus from '../plus-white.png'
-import whitedelete from '../delete-white.png'
 export default class SettingsModal extends React.Component {
 
 generateUsers = () => {
@@ -21,8 +19,7 @@ generateUsers = () => {
       <div className="ap-modal">
       <div className="ap-modalmain">
         <p className="ap-text">Edit Users</p>
-        {this.props.editChild ? <React.Fragment><form className="childList">{users}</form></React.Fragment> : <input className="ac-option" type="submit" src={whitedelete} onClick={this.props.addChild } value="Delete"/> }
-        {this.props.showAddChild ? <React.Fragment><input className="ac-option-white" type="submit" onClick={this.props.addChild } value="Add" /><br/><input className='ap-nameinput' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><br/><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <input className="ac-option" type="submit" onClick={this.props.addChild } value="Add" />}
+        {this.props.showAddChild ? <React.Fragment><input className="ac-option" type="submit" onClick={ this.props.addChild } value="Delete"/><input className="ac-option-white" type="submit" onClick={this.props.addChild } value="Add" /><br/><input className='ap-nameinput' type="text" placeholder="Name" onChange={this.props.submitChild}/><br /><input className="ap-file" type="file" accept="image/*" multiple={false} onChange={this.props.submitChild} /><br/><input className="ap-submit" type="submit" value="Add Child" onClick={this.props.postChild} /></React.Fragment> : <React.Fragment><input className="ac-option-white" type="submit" onClick={ this.props.addChild } value="Delete"/><input className="ac-option" type="submit" onClick={this.props.addChild } value="Add" /><form className="childList">{users}</form></React.Fragment>}
 
       <p onClick={this.props.cancel} className="ap-no">Cancel</p>
       </div>

@@ -81,14 +81,22 @@ postChild = (e) => {
 
 postBuyPrize = (e) => {
   e.preventDefault()
+  const username = e.target.parentNode.children[1].value
+  const finduser = this.state.users.find( user => user.name === username )
+  const userid = finduser.id
+  const count = finduser.count
 
-  const id = this.state.userid
-  const prizeid = this.state.prizeid
+  const findprize = this.state.prizes.find( prize => prize.title === this.state.prize)
+  const prizeid = findprize.id
+
+  this.setState({ count, userid, prizeid })
+
 
   const postBuyPrize = async () => {
+    const id = await this.state.userid
     const res = await fetch( userURL + '/' + id, { method: 'PATCH', body: JSON.stringify({ count: this.state.count - this.state.price }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } })
     const json = await res.json()
-    const deleteprize = await fetch( prizeURL + '/' + prizeid, { method: 'DELETE' })
+    const deleteprize = await fetch( prizeURL + '/' + this.state.prizeid, { method: 'DELETE' })
     const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
     const loadjson = await Promise.all(loadres.map(r => r.json()))
     const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
@@ -163,12 +171,6 @@ postBuyPrize = (e) => {
   }
 
 
-  handleMinusClick = () => {
-    this.setState(({ count }) => ({
-      count: count - 1
-    }));
-  };
-
 handlePrizeClick = (e) => {
   const newPrize = e.target.alt
   const newPrice = this.state[newPrize]
@@ -231,8 +233,8 @@ submitChild = (e) => {
   e.preventDefault()
 
   this.setState({
-    name: e.target.parentNode.children[8].value,
-    avatar: e.target.parentNode.children[10].files[0]
+    name: e.target.parentNode.children[4].value,
+    avatar: e.target.parentNode.children[6].files[0]
    })
 }
 
