@@ -7,4 +7,4 @@ A kid’s app for parents to encourage positive behaviors.
 * Dynamically styled with CSS to improve UI/UX
 * User tested by families as part of the QA process
 
-run *npm start* to start application 
+Run *npm start* to start application 
