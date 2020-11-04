@@ -1,5 +1,4 @@
-__Twinkle__
--------------------------------------------------------
+#Twinkle 
 
 A kid’s app for parents to encourage positive behaviors.
 * Designed and prototyped user interface in Figma
