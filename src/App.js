@@ -14,6 +14,7 @@ import UserScreen from './UserScreen.png'
 import PrizeScreen from './PrizeScreen.png'
 import UserScreenSelect from './UserScreenSelect.png'
 import PrizeScreenSelect from './PrizeScreenSelect.png'
+import LoginButton from './LoginButton.png'
 import Login from './components/Login.js'
 import Logout from './components/Logout.js'
 
@@ -315,9 +316,9 @@ prepBuyPrize = (e) => {
     return (
       <div className="App">
         <Router>
-          <div className="nav">
+          <div alt ='login' className="nav">
           <Link to="/login">
-          <p>login</p>
+          <img src={LoginButton} className="nav-button-login"/>
           </Link>
             <Link to="/">
               { this.state.homepage ? <img alt="userscreen" className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
