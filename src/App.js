@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GoogleLogin } from 'react-google-login';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +14,13 @@ import UserScreen from './UserScreen.png'
 import PrizeScreen from './PrizeScreen.png'
 import UserScreenSelect from './UserScreenSelect.png'
 import PrizeScreenSelect from './PrizeScreenSelect.png'
+import Login from './components/Login.js'
+import Logout from './components/Logout.js'
 
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
+
 
 
 class App extends Component {
@@ -49,17 +53,17 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
-
-    Promise.all([
-      fetch( prizeURL ),
-      fetch( userURL ),
-    ]).then((results) =>
-    Promise.all(results.map(r => r.json()))
-  ).then(d => this.setState({ prizes: d[0], users: d[1] })
-)
-
-}
+//   componentDidMount() {
+//
+//     Promise.all([
+//       fetch( prizeURL ),
+//       fetch( userURL ),
+//     ]).then((results) =>
+//     Promise.all(results.map(r => r.json()))
+//   ).then(d => this.setState({ prizes: d[0], users: d[1] })
+// )
+//
+// }
 
 postChild = (e) => {
   e.preventDefault()
@@ -312,6 +316,9 @@ prepBuyPrize = (e) => {
       <div className="App">
         <Router>
           <div className="nav">
+          <Link to="/login">
+          <p>login</p>
+          </Link>
             <Link to="/">
               { this.state.homepage ? <img alt="userscreen" className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
               <img alt="nav star" className="nav-button-star" onClick={this.handleUserClick} src={UserScreen} />
@@ -322,6 +329,10 @@ prepBuyPrize = (e) => {
             </Link>
           </div>
           <Switch>
+          <Route path="/login">
+          <Login />
+          <Logout />
+          </Route>
             <Route path="/prizes">
               <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>

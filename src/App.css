@@ -711,6 +711,11 @@ color: #ffffff;
   background-color: #C1DAFF;
 }
 
+.Login {
+  width: 120px;
+  margin-top: 180px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
