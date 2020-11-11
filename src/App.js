@@ -54,17 +54,17 @@ class App extends Component {
   }
 
 
-//   componentDidMount() {
-//
-//     Promise.all([
-//       fetch( prizeURL ),
-//       fetch( userURL ),
-//     ]).then((results) =>
-//     Promise.all(results.map(r => r.json()))
-//   ).then(d => this.setState({ prizes: d[0], users: d[1] })
-// )
-//
-// }
+  componentDidMount() {
+
+    Promise.all([
+      fetch( prizeURL ),
+      fetch( userURL ),
+    ]).then((results) =>
+    Promise.all(results.map(r => r.json()))
+  ).then(d => this.setState({ prizes: d[0], users: d[1] })
+)
+
+}
 
 postChild = (e) => {
   e.preventDefault()
