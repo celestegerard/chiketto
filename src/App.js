@@ -125,7 +125,6 @@ postBuyPrize = (e) => {
     prize.append('title', this.state.title);
     prize.append('price', this.state.price);
     prize.append('prizeimage', this.state.prizeimage);
-    prize.append('count', 0);
 
     const postPrize = async () => {
       const res = await fetch( prizeURL, { method: 'POST', body: prize })
