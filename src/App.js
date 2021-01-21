@@ -27,6 +27,7 @@ const userURL = "http://localhost:3000/api/v1/users"
 class App extends Component {
 
   state = {
+    people: {},
     name: '',
     avatar: null,
     count: 0,
@@ -330,7 +331,7 @@ prepBuyPrize = (e) => {
           </div>
           <Switch>
           <Route path="/login">
-          <Login />
+          <Login people={this.state.people} />
           <Logout />
           </Route>
             <Route path="/prizes">

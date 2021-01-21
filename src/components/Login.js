@@ -4,10 +4,13 @@ import { GoogleLogin } from 'react-google-login';
 const clientId = '1037231150604-hhea5b41gh6e99d24vnhuko4ik5n9mk2.apps.googleusercontent.com'
 
 
+
 function Login() {
+
 
     const onSuccess = ( res ) => {
       console.log('[Login Success] currentUser:', res.profileObj)
+      console.log('id:', res.profileObj.googleId, 'img:', res.profileObj.imageUrl, "name:", res.profileObj.name)
     }
 
     const onFailure = ( res ) => {
