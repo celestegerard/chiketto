@@ -11,6 +11,7 @@ function Login() {
     const onSuccess = ( res ) => {
       console.log('[Login Success] currentUser:', res.profileObj)
       console.log('id:', res.profileObj.googleId, 'img:', res.profileObj.imageUrl, "name:", res.profileObj.name)
+      this.props.setLog();
     }
 
     const onFailure = ( res ) => {

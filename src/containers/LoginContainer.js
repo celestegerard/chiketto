@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Component } from 'react';
 import Login from '../components/Login.js';
 import Logout from '../components/Logout.js'
 
 
-class LoginContainer extends React.Component {
-
-
+class LoginContainer extends Component {
 
   render() {
 
+
     return (
       <React.Fragment>
-      <Login />
+      <Login setLog={this.props.setLog()}/>
       <Logout />
       </React.Fragment>
 
