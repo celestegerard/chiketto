@@ -22,6 +22,7 @@ import Logout from './components/Logout.js'
 
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
+const parentURL = "http://localhost:3000/api/v1/parents"
 
 
 
@@ -52,7 +53,8 @@ class App extends Component {
     page: false,
     buyPrize: false,
     homepage: true,
-    showDeletePrize: false
+    showDeletePrize: false,
+    parents: []
   }
 
 
@@ -61,16 +63,13 @@ class App extends Component {
     Promise.all([
       fetch( prizeURL ),
       fetch( userURL ),
+      fetch( parentURL )
     ]).then((results) =>
     Promise.all(results.map(r => r.json()))
-  ).then(d => this.setState({ prizes: d[0], users: d[1] })
+  ).then(d => this.setState({ prizes: d[0], users: d[1], parents: d[2] })
 )
-
 }
 
-setLog = () => {
-  console.log("made it!")
-}
 
 postChild = (e) => {
   e.preventDefault()
@@ -317,6 +316,8 @@ prepBuyPrize = (e) => {
 
 
   render() {
+
+    console.log(this.state.parents)
 
     return (
       <div className="App">
