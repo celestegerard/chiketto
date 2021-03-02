@@ -9,28 +9,6 @@ const userURL = "http://localhost:3000/api/v1/users"
 
 function Login() {
 
-    // const onSuccess = ( res ) => {
-    //   console.log('[Login Success] currentUser:', res.profileObj)
-    //   console.log('id:', res.profileObj.googleId, 'img:', res.profileObj.imageUrl, "name:", res.profileObj.name)
-    // }
-    // postChild = (e) => {
-    //   e.preventDefault()
-    //   const child = new FormData();
-    //   child.append('name', this.state.name);
-    //   child.append('avatar', this.state.avatar);
-    //   child.append('count', 0);
-    //
-    //   const postChild = async () => {
-    //     const res = await fetch( userURL, { method: 'POST', body: child })
-    //     const json = await res.json()
-    //     const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
-    //     const loadjson = await Promise.all(loadres.map(r => r.json()))
-    //     const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
-    //   }
-    //   postChild()
-    //   this.setState({ settings: false, addChild: false })
-    // }
-
     const yep = (res) => {
       const parent = new FormData();
       parent.append('name', res.profileObj.name);
