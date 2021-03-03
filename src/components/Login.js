@@ -6,14 +6,31 @@ const parentURL = "http://localhost:3000/api/v1/parents"
 const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
 
+let parents = []
 
 function Login() {
 
-    const yep = (res) => {
-      const parent = new FormData();
-      parent.append('name', res.profileObj.name);
-      parent.append('googleid', res.profileObj.googleId);
-      parent.append('avatar', res.profileObj.imageUrl);
+
+
+    const yep = (props) => {
+
+      fetch( parentURL )
+      .then(res => res.json())
+      .then(data => data.map(parent => ({...parents, parent })))
+
+      console.log(parents)
+
+
+      // .then(() => console.log(parents))
+
+      // parents[0].name === props.profileObj.name ? console.log('true!') : console.log('false!')
+
+console.log(props.profileObj.name)
+
+      // const parent = new FormData();
+      // parent.append('name', res.profileObj.name);
+      // parent.append('googleid', res.profileObj.googleId);
+      // parent.append('avatar', res.profileObj.imageUrl);
 
 
       // const postParent = async () => {
@@ -25,7 +42,6 @@ function Login() {
       // }
       // // postParent()
 
-      console.log("YEW")
     }
 
     const onFailure = ( res ) => {
@@ -39,7 +55,7 @@ function Login() {
       buttonText="Login"
       onSuccess={yep}
       onFailure={onFailure}
-      cookiePolicy={'single_host_origin'}
+
       className="Login"
       isSignedIn={true}
       />

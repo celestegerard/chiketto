@@ -7,10 +7,9 @@ class LoginContainer extends Component {
 
   render() {
 
-
     return (
       <React.Fragment>
-      <Login setLog={this.props.setLog}/>
+      <Login parents={this.props.parents} />
       <Logout />
       </React.Fragment>
 
