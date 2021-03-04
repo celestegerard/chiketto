@@ -13,12 +13,15 @@ function Login(parentid) {
 
     const yep = (res) => {
 
+      {parentid.onLoginClick(parentid)}
+
       fetch( parentURL )
       .then(res => res.json())
       .then(data => parents = data)
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? parentid = {parentid: 2} : console.log('wo!')
+      parentnames.includes(res.profileObj.name) ? parentid = { parentid: 2 } : console.log('wo!')
+
 
       console.log(parentid.parentid)
         console.log(parentid)
@@ -42,7 +45,6 @@ function Login(parentid) {
     return (
       <div>
       <GoogleLogin
-      onChange={parentid.onLoginClick(parentid)}
       clientId={clientId}
       buttonText="Login"
       onSuccess={yep}
@@ -57,3 +59,5 @@ function Login(parentid) {
 
 
 export default Login;
+
+// onChange={parentid.onLoginClick(parentid)}
