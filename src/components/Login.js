@@ -9,9 +9,7 @@ const userURL = "http://localhost:3000/api/v1/users"
 let parents = []
 let parentnames = []
 
-function Login() {
-
-
+function Login(parentid, onLoginClick) {
 
     const yep = (res) => {
 
@@ -20,12 +18,8 @@ function Login() {
       .then(data => parents = data)
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? console.log('ya') : console.log('woo!')
+      parentnames.includes(res.profileObj.name) ? console.log(parentid) : console.log('wo!')
 
-      // const parent = new FormData();
-      // parent.append('name', res.profileObj.name);
-      // parent.append('googleid', res.profileObj.googleId);
-      // parent.append('avatar', res.profileObj.imageUrl);
 
 
       // const postParent = async () => {
@@ -50,6 +44,7 @@ function Login() {
       buttonText="Login"
       onSuccess={yep}
       onFailure={onFailure}
+      onClick={onLoginClick}
 
       className="Login"
       isSignedIn={true}

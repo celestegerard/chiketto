@@ -54,7 +54,7 @@ class App extends Component {
     buyPrize: false,
     homepage: true,
     showDeletePrize: false,
-    parents: []
+    parentid: 0
   }
 
 
@@ -314,6 +314,10 @@ prepBuyPrize = (e) => {
 }
 }
 
+onLoginClick = () => {
+  console.log('hit it!')
+}
+
 
   render() {
 
@@ -336,7 +340,7 @@ prepBuyPrize = (e) => {
           </div>
           <Switch>
           <Route path="/login">
-          <LoginContainer parents={this.state.parents} />
+          <LoginContainer parentid={this.state.parentid} onLoginClick={this.onLoginClick}/>
           </Route>
             <Route path="/prizes">
               <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
