@@ -9,7 +9,7 @@ const userURL = "http://localhost:3000/api/v1/users"
 let parents = []
 let parentnames = []
 
-function Login(parentid, onLoginClick) {
+function Login(parentid) {
 
     const yep = (res) => {
 
@@ -18,9 +18,10 @@ function Login(parentid, onLoginClick) {
       .then(data => parents = data)
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? console.log(parentid) : console.log('wo!')
+      parentnames.includes(res.profileObj.name) ? parentid = {parentid: 2} : console.log('wo!')
 
-
+      console.log(parentid.parentid)
+        console.log(parentid)
 
       // const postParent = async () => {
       //   const res = await fetch( parentURL, { method: 'POST', body: parent })
@@ -33,6 +34,7 @@ function Login(parentid, onLoginClick) {
 
     }
 
+
     const onFailure = ( res ) => {
       console.log('[Login failed] res:', res)
     }
@@ -40,11 +42,11 @@ function Login(parentid, onLoginClick) {
     return (
       <div>
       <GoogleLogin
+      onChange={parentid.onLoginClick(parentid)}
       clientId={clientId}
       buttonText="Login"
       onSuccess={yep}
       onFailure={onFailure}
-      onClick={onLoginClick}
 
       className="Login"
       isSignedIn={true}
