@@ -7,6 +7,7 @@ const prizeURL = "http://localhost:3000/api/v1/prizes"
 const userURL = "http://localhost:3000/api/v1/users"
 
 let parents = []
+let parentnames = []
 
 function Login() {
 
@@ -18,12 +19,8 @@ function Login() {
       .then(res => res.json())
       .then(data => parents = data)
 
-      console.log(parents)
-
-      parents.map(parent => parent.name === res.profileObj.name ? console.log('yeah!') : console.log('works!'))
-
-      console.log(res.profileObj.name)
-      // parents[0].name === props.profileObj.name ? console.log('true!') : console.log('false!')
+      parents.map(parent => parentnames = [...parentnames, parent.name] )
+      parentnames.includes(res.profileObj.name) ? console.log('ya') : console.log('woo!')
 
       // const parent = new FormData();
       // parent.append('name', res.profileObj.name);
