@@ -12,20 +12,18 @@ function Login() {
 
 
 
-    const yep = (props) => {
+    const yep = (res) => {
 
       fetch( parentURL )
       .then(res => res.json())
-      .then(data => data.map(parent => ({...parents, parent })))
+      .then(data => parents = data)
 
       console.log(parents)
 
+      parents.map(parent => parent.name === res.profileObj.name ? console.log('yeah!') : console.log('works!'))
 
-      // .then(() => console.log(parents))
-
+      console.log(res.profileObj.name)
       // parents[0].name === props.profileObj.name ? console.log('true!') : console.log('false!')
-
-console.log(props.profileObj.name)
 
       // const parent = new FormData();
       // parent.append('name', res.profileObj.name);
