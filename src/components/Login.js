@@ -13,8 +13,6 @@ function Login(parentid) {
 
     const yep = (res) => {
 
-      {parentid.onLoginClick(parentid)}
-
       fetch( parentURL )
       .then(res => res.json())
       .then(data => parents = data)
@@ -23,17 +21,15 @@ function Login(parentid) {
       parentnames.includes(res.profileObj.name) ? parentid = { parentid: 2 } : console.log('wo!')
 
 
-      console.log(parentid.parentid)
-        console.log(parentid)
-
-      // const postParent = async () => {
-      //   const res = await fetch( parentURL, { method: 'POST', body: parent })
-      //   const json = await res.json()
-      //   const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )]), fetch( parentURL )])
-      //   // const loadjson = await Promise.all(loadres.map(r => r.json()))
-      //   // const state = await this.setState({ prizes: loadjson[0], users: loadjson[1], parents: loadjson[2] })
-      // }
-      // // postParent()
+      const postParent = async () => {
+        const res = await fetch( parentURL, { method: 'GET' })
+        const json = await res.json()
+        console.log(json)
+        // const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )]), fetch( parentURL )])
+        // const loadjson = await Promise.all(loadres.map(r => r.json()))
+        // const state = await this.setState({ prizes: loadjson[0], users: loadjson[1], parents: loadjson[2] })
+      }
+      postParent()
 
     }
 
@@ -43,7 +39,7 @@ function Login(parentid) {
     }
 
     return (
-      <div>
+      <div onClick={parentid.onLoginClick(parentid)}>
       <GoogleLogin
       clientId={clientId}
       buttonText="Login"
