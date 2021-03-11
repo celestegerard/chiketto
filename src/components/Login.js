@@ -9,7 +9,7 @@ const userURL = "http://localhost:3000/api/v1/users"
 let parents = []
 let parentnames = []
 
-function Login(parentid) {
+function Login(parent) {
 
     const yep = (res) => {
 
@@ -18,8 +18,9 @@ function Login(parentid) {
       .then(data => parents = data)
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? parentid = { parentid: 2 } : console.log('wo!')
+      parentnames.includes(res.profileObj.name) ? parent = { parentid: 2 } : console.log('wo!')
 
+console.log(parent)
 
       const postParent = async () => {
         const res = await fetch( parentURL, { method: 'GET' })
@@ -39,13 +40,12 @@ function Login(parentid) {
     }
 
     return (
-      <div onClick={parentid.onLoginClick(parentid)}>
+      <div>
       <GoogleLogin
       clientId={clientId}
       buttonText="Login"
       onSuccess={yep}
       onFailure={onFailure}
-
       className="Login"
       isSignedIn={true}
       />
@@ -57,3 +57,4 @@ function Login(parentid) {
 export default Login;
 
 // onChange={parentid.onLoginClick(parentid)}
+// onClick={parentid.onLoginClick(parentid)}
