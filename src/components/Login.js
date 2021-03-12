@@ -17,24 +17,12 @@ function Login(parent) {
       .then(res => res.json())
       .then(data => parents = data)
 
-      const setParentId = async () => {
-        console.log(parent.onLoginClick)
+      const setParentId = async (name) => {
+        parent.onLoginClick(name)
       }
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? setParentId() : console.log('wo!')
-
-console.log(parent.loginparentid)
-
-      const postParent = async () => {
-        const res = await fetch( parentURL, { method: 'GET' })
-        const json = await res.json()
-        console.log(json)
-        // const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )]), fetch( parentURL )])
-        // const loadjson = await Promise.all(loadres.map(r => r.json()))
-        // const state = await this.setState({ prizes: loadjson[0], users: loadjson[1], parents: loadjson[2] })
-      }
-      postParent()
+      parentnames.includes(res.profileObj.name) ? setParentId(res.profileObj.name) : console.log('wo!')
 
     }
 

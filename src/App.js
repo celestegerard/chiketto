@@ -54,7 +54,8 @@ class App extends Component {
     buyPrize: false,
     homepage: true,
     showDeletePrize: false,
-    parentid: 0
+    parentid: 0,
+    parents: []
   }
 
 
@@ -314,8 +315,8 @@ prepBuyPrize = (e) => {
 }
 }
 
-onLoginClick = (parentid) => {
-  console.log(parentid.parentid)
+onLoginClick(name) {
+  console.log(name)
 }
 
 
