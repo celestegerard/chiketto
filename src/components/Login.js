@@ -22,7 +22,7 @@ function Login(parent) {
       }
 
       parents.map(parent => parentnames = [...parentnames, parent.name] )
-      parentnames.includes(res.profileObj.name) ? setParentId(res.profileObj.name) : console.log('wo!')
+      setParentId(res.profileObj.name)
 
     }
 

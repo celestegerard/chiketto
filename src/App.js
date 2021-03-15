@@ -71,7 +71,6 @@ class App extends Component {
 )
 }
 
-
 postChild = (e) => {
   e.preventDefault()
   const child = new FormData();
@@ -318,11 +317,15 @@ prepBuyPrize = (e) => {
 
 onLoginClick = (name) => {
   this.state.parents.map(parent => parent.name === name ? this.setState({parentid: parent.id}) : null )
+  const prizes = this.state.prizes.filter(prize => prize.parent_id === this.state.parentid)
+  console.log(prizes)
+  this.setState({ prizes })
+  console.log(this.state.prizes)
   console.log(name)
 }
 
   render() {
-    console.log('parentid', this.state.parentid);
+    this.state.prizes.map(prize => console.log(prize))
 
 
     return (
@@ -346,10 +349,10 @@ onLoginClick = (name) => {
           <LoginContainer loginparentid={this.state.parentid} onLoginClick={this.onLoginClick} />
           </Route>
             <Route path="/prizes">
-              <PrizesContainer prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
+              <PrizesContainer parentid={this.state.parentid} prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
             </Route>
             <Route path="/">
-              <Home user={this.state.user} editChild={this.state.editChild} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusticket={this.plusTicket} />
+              <Home parentid={this.state.parentid} user={this.state.user} editChild={this.state.editChild} cancel={this.AddStarNoClick} fetch={this.state.fetch} deleteChild={this.deleteChild} postChild={this.postChild} submitChild={this.submitChild} showAddChild={this.state.addChild} addChild={this.addChild} settings={this.state.settings} handleSettingsClick={this.handleSettingsClick} handleSettingsCancelClick={this.handleSettingsCancelClick} users={this.state.users} count={this.state.count} incrementCount={this.incrementCount} handleStarClick={this.handleStarClick} addTicket={this.state.addTicket} plusticket={this.plusTicket} />
             </Route>
           </Switch>
         </Router>
