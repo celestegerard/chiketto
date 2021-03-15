@@ -315,12 +315,15 @@ prepBuyPrize = (e) => {
 }
 }
 
-onLoginClick(name) {
+
+onLoginClick = (name) => {
+  // parentnames.includes(res.profileObj.name) ? setParentId(res.profileObj.name) : console.log('wo!')
+  this.state.parents.map(parent => console.log(parent.name))
   console.log(name)
 }
 
-
   render() {
+    console.log('parents', this.state.parents);
 
 
     return (
