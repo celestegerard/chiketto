@@ -21,8 +21,8 @@ function Login(parent) {
         parent.onLoginClick(name)
       }
 
-      // parents.map(parent => parentnames = [...parentnames, parent.name] )
-      // parentnames.includes(res.profileObj.name) ? setParentId(res.profileObj.name) : console.log('wo!')
+      parents.map(parent => parentnames = [...parentnames, parent.name] )
+      parentnames.includes(res.profileObj.name) ? setParentId(res.profileObj.name) : console.log('wo!')
 
     }
 
