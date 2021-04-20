@@ -318,14 +318,10 @@ prepBuyPrize = (e) => {
 onLoginClick = (name) => {
   this.state.parents.map(parent => parent.name === name ? this.setState({parentid: parent.id}) : null )
   const prizes = this.state.prizes.filter(prize => prize.parent_id === this.state.parentid)
-  console.log(prizes)
   this.setState({ prizes })
-  console.log(this.state.prizes)
-  console.log(name)
 }
 
   render() {
-    this.state.prizes.map(prize => console.log(prize))
 
 
     return (

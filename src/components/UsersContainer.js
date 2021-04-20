@@ -6,11 +6,18 @@ import Prize from '../components/Prize.js';
 
 export default class UsersContainer extends React.Component {
 
+  generateUser = () => {
+    const parentsprizes = this.props.prizes.filter(prize => prize.parent_id === this.props.parentid)
+    return parentsprizes.map(prize =>  <Prize buyPrize={this.props.buyPrize} prize={prize} key={prize.id} handleBuyPrizeClick={this.props.handleBuyPrizeClick} /> )
+  }
 
   generateUser = () => {
-     return this.props.users.filter( user => user.name.includes('C')).map( filteredUser => (
-       <User incrementCount={this.props.incrementCount} user={filteredUser} key={filteredUser.id} />
-     ))
+    const parentsuser = this.props.user.filter( user => user.parent_id === this.props.parentid)
+    console.log(parentsuser)
+    console.log("THIS ARE THE CHILDREN OF ONE PERSON", parentsuser)
+     // return this.props.users.filter( user => user.name.includes('C')).map( filteredUser => (
+     //   <User incrementCount={this.props.incrementCount} user={filteredUser} key={filteredUser.id} />
+     // ))
   }
 
   generatePrizes = () => {
