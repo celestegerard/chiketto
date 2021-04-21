@@ -77,6 +77,9 @@ postChild = (e) => {
   child.append('name', this.state.name);
   child.append('avatar', this.state.avatar);
   child.append('count', 0);
+  child.append('parent_id', 2);
+
+  console.log(child)
 
   const postChild = async () => {
     const res = await fetch( userURL, { method: 'POST', body: child })
