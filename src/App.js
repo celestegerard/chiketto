@@ -198,6 +198,7 @@ handlePrizeClick = (e) => {
 
 handleUserClick = () => {
   this.setState({ homepage: true })
+  console.log('whats good!')
 }
 
 handleAddPrizeClick = () => {
@@ -329,18 +330,15 @@ onLoginClick = (name) => {
 }
 
   render() {
-console.log(this.state.parentid)
-console.log(this.state.massusers)
-console.log(this.state.massprizes)
-console.log(this.state.users)
-console.log(this.state.prizes)
+
+console.log(this.state.homepage)
 
     return (
       <div className="App">
         <Router>
           <div alt ='login' className="nav">
           <Link to="/login">
-          <img src={LoginButton} className="nav-button-login"/>
+          <img src={LoginButton} className="nav-button-login" />
           </Link>
             <Link to="/">
               { this.state.homepage ? <img alt="userscreen" className="nav-button-star-yellow" src={UserScreenSelect} /> : null }
