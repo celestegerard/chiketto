@@ -175,7 +175,10 @@ postBuyPrize = (e) => {
       const json = await res.json()
       const loadres = await Promise.all([ fetch( prizeURL ), fetch( userURL )])
       const loadjson = await Promise.all(loadres.map(r => r.json()))
-      const state = await this.setState({ prizes: loadjson[0], users: loadjson[1] })
+      const prizes = loadjson[0].filter(prize => prize.parent_id === this.state.parentid)
+      const users = loadjson[1].filter(user => user.parent_id === this.state.parentid)
+      console.log(prizes)
+      const state = await this.setState({ prizes, users })
     }
     patchStar()
     this.setState({ addTicket: !this.state.addTicket })
