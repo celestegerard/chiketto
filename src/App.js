@@ -55,7 +55,9 @@ class App extends Component {
     homepage: true,
     showDeletePrize: false,
     parentid: 0,
-    parents: []
+    parents: [],
+    massprizes: [],
+    massusers: []
   }
 
 
@@ -67,7 +69,7 @@ class App extends Component {
       fetch( parentURL )
     ]).then((results) =>
     Promise.all(results.map(r => r.json()))
-  ).then(d => this.setState({ prizes: d[0], users: d[1], parents: d[2] })
+  ).then(d => this.setState({ massprizes: d[0], massusers: d[1], parents: d[2] })
 )
 }
 
@@ -318,12 +320,17 @@ prepBuyPrize = (e) => {
 
 onLoginClick = (name) => {
   this.state.parents.map(parent => parent.name === name ? this.setState({parentid: parent.id}) : null )
-  const prizes = this.state.prizes.filter(prize => prize.parent_id === this.state.parentid)
-  this.setState({ prizes })
+  const prizes = this.state.massprizes.filter(prize => prize.parent_id === this.state.parentid)
+  const users = this.state.massusers.filter(user => user.parent_id === this.state.parentid)
+  this.setState({ prizes, users })
 }
 
   render() {
-
+console.log(this.state.parentid)
+console.log(this.state.massusers)
+console.log(this.state.massprizes)
+console.log(this.state.users)
+console.log(this.state.prizes)
 
     return (
       <div className="App">

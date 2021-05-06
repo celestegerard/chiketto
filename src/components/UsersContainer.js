@@ -8,9 +8,7 @@ export default class UsersContainer extends React.Component {
 
 
   generateUser = () => {
-     return this.props.users.filter( user => user.name.includes('C')).map( filteredUser => (
-       <User incrementCount={this.props.incrementCount} user={filteredUser} key={filteredUser.id} />
-     ))
+    return this.props.users.map( user => <User incrementCount={this.props.incrementCount} user={user} key={user.id} /> )
   }
 
   generatePrizes = () => {
@@ -22,6 +20,7 @@ export default class UsersContainer extends React.Component {
 
     const selectedUser = this.generateUser()
     const prizes = this.generatePrizes()
+    console.log(this.props.parentid)
 
     return (
       <React.Fragment>

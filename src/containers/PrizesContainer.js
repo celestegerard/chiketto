@@ -10,12 +10,8 @@ import Prize from '../components/Prize.js';
 export default class PrizesContainer extends React.Component {
 
   generatePrizes = () => {
-    const parentsprizes = this.props.prizes.filter(prize => prize.parent_id === this.props.parentid)
-    return parentsprizes.map(prize =>  <Prize buyPrize={this.props.buyPrize} prize={prize} key={prize.id} handleBuyPrizeClick={this.props.handleBuyPrizeClick} /> )
+    return this.props.prizes.map(prize =>  <Prize buyPrize={this.props.buyPrize} prize={prize} key={prize.id} handleBuyPrizeClick={this.props.handleBuyPrizeClick} /> )
   }
-
-
-
 
   render() {
 
