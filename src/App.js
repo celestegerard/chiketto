@@ -133,6 +133,7 @@ postBuyPrize = (e) => {
     prize.append('title', this.state.title);
     prize.append('price', this.state.price);
     prize.append('prizeimage', this.state.prizeimage);
+    prize.append('parent_id', this.state.parentid);
 
     const postPrize = async () => {
       const res = await fetch( prizeURL, { method: 'POST', body: prize })
