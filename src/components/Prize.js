@@ -9,7 +9,6 @@ class Prize extends Component {
     return(
       <div onClick={this.props.handleBuyPrizeClick} className="PrizeBoxContainer">
         <div className="yellow-sticker">
-          <img className="Prize" src={this.props.prize.prizeimage.url} alt={this.props.prize.title} id={this.props.prize.id}/>
           <p className="boxprice">{this.props.prize.price}</p>
         </div>
       </div>
@@ -18,3 +17,5 @@ class Prize extends Component {
 }
 
 export default Prize;
+
+// <img className="Prize" src={this.props.prize.prizeimage.url} alt={this.props.prize.title} id={this.props.prize.id}/>
