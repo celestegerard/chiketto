@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
 
 const clientId = '1037231150604-hhea5b41gh6e99d24vnhuko4ik5n9mk2.apps.googleusercontent.com'
@@ -24,6 +31,7 @@ function Login(parent) {
       parents.map(parent => parentnames = [...parentnames, parent.name] )
       setParentId(res.profileObj.name)
 
+      parent.loggedin()
     }
 
 

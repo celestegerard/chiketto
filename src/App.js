@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import './App.css';
 import PrizesContainer from './containers/PrizesContainer.js'
@@ -57,7 +58,8 @@ class App extends Component {
     parentid: 0,
     parents: [],
     massprizes: [],
-    massusers: []
+    massusers: [],
+    login: false
   }
 
 
@@ -71,6 +73,11 @@ class App extends Component {
     Promise.all(results.map(r => r.json()))
   ).then(d => this.setState({ massprizes: d[0], massusers: d[1], parents: d[2] })
 )
+}
+
+loggedin = () => {
+  this.setState({ login: true })
+  // { this.state.login ? (<Redirect push to="/"/>) : null }
 }
 
 postChild = (e) => {
@@ -332,7 +339,6 @@ onLoginClick = (name) => {
 
   render() {
 
-console.log(this.state.homepage)
 
     return (
       <div className="App">
@@ -352,7 +358,7 @@ console.log(this.state.homepage)
           </div>
           <Switch>
           <Route path="/login">
-          <LoginContainer loginparentid={this.state.parentid} onLoginClick={this.onLoginClick} />
+          <LoginContainer loggedin={this.loggedin} loginparentid={this.state.parentid} onLoginClick={this.onLoginClick} />
           </Route>
             <Route path="/prizes">
               <PrizesContainer parentid={this.state.parentid} prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
