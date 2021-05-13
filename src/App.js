@@ -77,7 +77,6 @@ class App extends Component {
 
 loggedin = () => {
   this.setState({ login: true })
-  // { this.state.login ? (<Redirect push to="/"/>) : null }
 }
 
 postChild = (e) => {
@@ -343,6 +342,7 @@ onLoginClick = (name) => {
     return (
       <div className="App">
         <Router>
+          { this.state.login ? <Redirect to="/" /> : console.log('the null part') }
           <div alt ='login' className="nav">
           <Link to="/login">
           <img src={LoginButton} className="nav-button-login" />
