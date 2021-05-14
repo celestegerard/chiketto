@@ -10,7 +10,7 @@ class LoginContainer extends Component {
     return (
       <React.Fragment>
       <Login loggedin={this.props.loggedin} loginparentid={this.props.loginparentid} onLoginClick={this.props.onLoginClick} />
-      <Logout />
+      <Logout onLogoutClick={this.props.onLogoutClick} />
       </React.Fragment>
 
     )

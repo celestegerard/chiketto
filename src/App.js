@@ -329,7 +329,11 @@ prepBuyPrize = (e) => {
 }
 
 createAccount = () => {
-  console.log()
+  console.log('hey bheebhe')
+}
+
+onLogoutClick = () => {
+  this.setState({ parentid: 0, prizes: [], users: [] })
 }
 
 onLoginClick = (name) => {
@@ -345,7 +349,7 @@ onLoginClick = (name) => {
     return (
       <div className="App">
         <Router>
-          { this.state.login ? <Redirect to="/" /> : console.log('the null part') }
+          { this.state.login ? <Redirect to="/" /> : <Redirect to="/login" /> }
           <div alt ='login' className="nav">
           <Link to="/login">
           <img src={LoginButton} className="nav-button-login" />
@@ -361,7 +365,7 @@ onLoginClick = (name) => {
           </div>
           <Switch>
           <Route path="/login">
-          <LoginContainer loggedin={this.loggedin} loginparentid={this.state.parentid} onLoginClick={this.onLoginClick} />
+          <LoginContainer loggedin={this.loggedin} loginparentid={this.state.parentid} onLoginClick={this.onLoginClick} onLogoutClick={this.onLogoutClick} />
           </Route>
             <Route path="/prizes">
               <PrizesContainer parentid={this.state.parentid} prepBuyPrize={this.prepBuyPrize} postBuyPrize={this.postBuyPrize} cancelBuyPrize={this.cancelBuyPrize} price={this.state.price} users={this.state.users} prize={this.state.prize} buyPrize={this.state.buyPrize} handleBuyPrizeClick={this.handleBuyPrizeClick} handleShowDeletePrize={this.handleShowDeletePrize} showDeletePrize={this.state.showDeletePrize} closeDeletePrize={this.closeDeletePrize} deletePrize={this.deletePrize} postPrize={this.postPrize} handlePrizeSubmit={this.handlePrizeSubmit} prizes={this.state.prizes} handleAddPrizeClick={this.handleAddPrizeClick} addPrize={this.state.addPrize} bouncyball={this.state.bouncyball} dino={this.state.dino} peppa={this.state.peppa} chalk={this.state.chalk} lizards={this.state.lizards} fish={this.state.fish} />
