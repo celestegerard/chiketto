@@ -328,9 +328,12 @@ prepBuyPrize = (e) => {
 }
 }
 
+createAccount = () => {
+  console.log()
+}
 
 onLoginClick = (name) => {
-  this.state.parents.map(parent => parent.name === name ? this.setState({parentid: parent.id}) : null )
+  this.state.parents.map(parent => parent.name === name ? this.setState({parentid: parent.id}) : this.createAccount() )
   const prizes = this.state.massprizes.filter(prize => prize.parent_id === this.state.parentid)
   const users = this.state.massusers.filter(user => user.parent_id === this.state.parentid)
   this.setState({ prizes, users })
