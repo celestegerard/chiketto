@@ -333,7 +333,7 @@ createAccount = () => {
 }
 
 onLogoutClick = () => {
-  this.setState({ parentid: 0, prizes: [], users: [] })
+  this.setState({ parentid: 0, prizes: [], users: [], login: false })
 }
 
 onLoginClick = (name) => {
