@@ -9,6 +9,7 @@ export default class User extends React.Component {
     return (
       <React.Fragment>
       <div className="MeterBlue" >
+        <img className="Profile" src={ this.props.user.avatar.url } alt="profile"/>
       <div className="count" onClick={this.props.incrementCount} >
         <div id={this.props.user.name}>
       <img className="count" src={star} alt="star" />
@@ -20,5 +21,3 @@ export default class User extends React.Component {
     )
   }
 }
-
-// <img className="Profile" src={ this.props.user.avatar.url } alt="profile"/>
