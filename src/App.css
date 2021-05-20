@@ -38,6 +38,8 @@
   float: left;
   width:100%;
   height: auto;
+  padding-top:15px;
+  padding-bottom:40px;
   border-radius: 16px;
 }
 
